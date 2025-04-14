@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Contact Me</title>
+</head>
+<body style="color: deeppink;">
+  <h2>Contact Me</h2>
+  <form id="contactForm">
+    <label for="name">Name:</label><br>
+    <input type="text" id="name" placeholder="Your Name" required><br><br>
+    <label for="email">email:</label><br>
+    <input type="email" id="email" placeholder="Your Email" required><br><br>
+    <label for="phone">phone:</label><br>
+    <input type="tel" id="phone" placeholder="Your Phone Number" required><br><br>
+    <button type="submit">Message on WhatsApp</button>
+  </form>
+
+  <script>
+    document.getElementById("contactForm").addEventListener("submit", function(event) {
+      event.preventDefault(); // prevent form submission
+
+      const name = document.getElementById("name").value.trim();
+      const email = document.getElementById("email").value.trim();
+      const phone = document.getElementById("phone").value.trim();
+
+      if (!name || !email || !phone) {
+        alert("Please fill all fields.");
+        return;
+      }
+
+      // Replace YOUR_NUMBER with your WhatsApp number in international format without '+'
+      const whatsappNumber = "919883557734"; 
+      const message = `Hi, I am ${name}. My email is ${email} and phone number is ${phone}. I'd like to get in touch with you.`;
+
+      const whatsappURL = `https://wa.me/${9883557734}?text=${encodeURIComponent(message)}`;
+      window.open(whatsappURL, "_blank");
+    });
+  </script>
+</body>
+</html>
