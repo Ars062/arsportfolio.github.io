@@ -3,22 +3,82 @@
 <head>
   <meta charset="UTF-8">
   <title>Contact Me</title>
+
+  <!-- Font Awesome for WhatsApp icon -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <style>
+    body {
+      background-color: chocolate;
+      color: deeppink;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    .container {
+      margin: auto;
+      width: 50%;
+      padding: 20px;
+      background-color: whitesmoke;
+      box-shadow: 20px 20px 20px rgba(0, 0, 0, 0.5);
+    }
+
+    input[type="text"],
+    input[type="email"],
+    input[type="tel"] {
+      margin: 5px 0 22px 0;
+      width: 100%;
+      padding: 10px;
+      border: none;
+      background: whitesmoke;
+    }
+
+    input[type="text"]:focus,
+    input[type="email"]:focus,
+    input[type="tel"]:focus {
+      background-color: rgba(8, 58, 7, 0.2);
+    }
+
+    .registation {
+      background: deeppink;
+      color: black;
+      padding: 10px 20px;
+      border: none;
+      opacity: 0.8;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    .registation:hover {
+      opacity: 1;
+    }
+  </style>
 </head>
-<body style="color: deeppink;">
-  <h2 style="color:royalblue;" >Contact Me</h2>
-  <h3 style="text-decoration: none;color: #fff; background: rgb(65,38,35); margin: 26px 0; padding: 10px 18px; border-radius: 10px; display:inline-flex; transition: .4s ease;"><a href="index.html">BACK</a></h3>
+<body>
+  <h2 style="color: royalblue;">CONTACT</h2>
   <form id="contactForm">
-    <label for="name">Name:</label><br>
-    <input type="text" id="name" placeholder="Your Name" required><br><br>
-    <label for="email">Email:</label><br>
-    <input type="email" id="email" placeholder="Your Email" required><br><br>
-    <label for="phone">  Phone:</label><br>
-    <input type="tel" id="phone" placeholder="Your Phone Number" required><br><br>
-    <button type="submit">Message on WhatsApp</button>
+    <div class="container">
+      <h3 style="color: darkred;">CONTACT ME</h3>
+
+      <label for="name">Name:</label><br>
+      <input type="text" id="name" placeholder="Your Name" required><br><br>
+
+      <label for="email">Email:</label><br>
+      <input type="email" id="email" placeholder="Your Email" required><br><br>
+
+      <label for="phone">Phone:</label><br>
+      <input type="tel" id="phone" placeholder="Your Phone Number" required><br><br>
+
+      <button class="registation" type="submit">
+        <i class="fab fa-whatsapp"></i> Message on WhatsApp
+      </button>
+    </div>
   </form>
 
   <script>
-    document.getElementById("contactForm").addEventListener("submit", function(event) {
+    document.getElementById("contactForm").addEventListener("submit", function (event) {
       event.preventDefault(); // prevent form submission
 
       const name = document.getElementById("name").value.trim();
@@ -30,11 +90,10 @@
         return;
       }
 
-      // Replace YOUR_NUMBER with your WhatsApp number in international format without '+'
-      const whatsappNumber = "919883557734"; 
+      const whatsappNumber = "919883557734";
       const message = `Hi, I am ${name}. My email is ${email} and phone number is ${phone}. I'd like to get in touch with you.`;
 
-      const whatsappURL = `https://wa.me/${9883557734}?text=${encodeURIComponent(message)}`;
+      const whatsappURL = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
       window.open(whatsappURL, "_blank");
     });
   </script>
