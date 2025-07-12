@@ -1,132 +1,168 @@
-*{
-    margin: 0;
-    padding: 0;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  font-family: sans-serif;
+}
+.main {
+  width: 100%;
+  background: url('https://github.com/Ars062/arsportfolio.github.io/blob/main/arslogo.png?raw=true') no-repeat center center/cover;
+  min-height: 100vh;
+  position: relative;
 }
 
-.main{
-    width: 100%;
-    background: url(D:\arslogo.png);
-    background-position: center;
-    background-size: cover;
-    height:120vh;
-    position: relative;
-    font-family: sans-serif;
+.navbar {
+  width: 86%;
+  display: flex;
+  margin: auto;
+  padding: 15px 0;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
 }
 
-.navbar{
-    width: 86%;
-    display: flex;
-    margin: auto;
-    padding: 15px 0;
-    align-items: center;
-    justify-content: space-between;
+.navbar .logo {
+  width: 100px;
+  cursor: pointer;
+  margin-top: -3%;
+  margin-left: -2%;
 }
 
-.navbar.logo{
-    width: 100px;
-    cursor: pointer;
-    margin-top: -3%;
-    margin-left: -2%;
+ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
 }
 
-ul{
-    margin-top: -2%;
+ul li {
+  list-style: none;
 }
 
-ul li{
-    list-style: none;
-    display: inline-block;
-    padding: 10px 16px;
+ul li a {
+  font-size: 16px;
+  font-weight: bold;
+  text-decoration: none;
+  color: darkslategray;
+  transition: .4s ease;
 }
 
-ul li a{
+ul li a:hover {
+  color: rgb(230,104,59);
+}
+
+.info {
+  margin-left: 7%;
+  margin-top: 6%;
+  max-width: 90%;
+  text-align: center;
+}
+
+.info h2 {
+  font-size: 65px;
+  color: rgb(45,38,35);
+}
+
+.info h3 {
+  font-size: 25px;
+  letter-spacing: 1px;
+  line-height: 24px;
+}
+
+.info h4 {
+  font-size: 20px;
+  color: rgb(50,40,59);
+}
+.info span {
+  color: rgb(210,110,100);
+}
+
+.info a {
+  text-decoration: none;
+  color: #fff;
+  background: rgb(45,38,35);
+  margin: 26px 0;
+  padding: 10px 18px;
+  border-radius: 10px;
+  display: inline-block;
+  transition: .4s ease;
+}
+
+.info a:hover {
+  background: rgb(59,174,209);
+}
+
+.image {
+  width: 100%;
+  text-align: center;
+  margin-top: 30px;
+}
+
+.image img {
+  max-width: 80%;
+  height: auto;
+  transition: transform 0.4s ease;
+}
+
+.image:hover .victoriaa {
+  transform: scale(1.05);
+}
+
+.icons {
+  margin-top: 20px;
+  text-align: center;
+}
+.icons a {
+  text-decoration: none;
+  color: #000;
+}
+
+.icons ion-icon {
+  margin: 0 10px;
+  color: #000;
+  font-size: 40px;
+  transition: .4s ease;
+}
+
+.icons ion-icon:hover {
+  color: rgb(59,174,209);
+}
+
+@media screen and (max-width: 768px) {
+  .main {
+    padding: 10px;
+  }
+
+  .info h2 {
+    font-size: 30px;
+  }
+
+  .info h3,
+  .info h4 {
     font-size: 16px;
-    font-weight: bold;
-    text-decoration: none;
-    color: darkslategray;
-    margin-top: -3%;
-    transition: .4s ease;
+  }
 
-}
+  .navbar ul {
+    flex-direction: column;
+    align-items: center;
+  }
 
-ul li a:hover{
-    color: rgb(230,104,59);
-}
+  .image img {
+    max-width: 100%;
+  }
 
-.info{
-    margin-left: 7%;
-    margin-top: 6%;
-}
+  .icons ion-icon {
+    font-size: 26px;
+  }
 
-.info h2{
-    font-size: 65px;
-    color: rgb(45,38,35);
-}
+  table {
+    font-size: 12px;
+  }
 
-.info h3{
-    font-size: 25px;
-    letter-spacing: 1px;
-    line-height: 24px;
-}
-
-.info h4{
-    font-size: 20px;
-    color: rgb(50,40,59);
-}
-.info span{
-    color: rgb(210,110,100);
-}
-
-.info a{
-    text-decoration:  none;
-    color: #fff;
-    background: rgb(45,38,35);
-    margin: 26px 0;
-    padding: 10px 18px;
-    border-radius: 10px;
-    display:inline-flex;
-    transition: .4s ease;
-}
-
-.info a:hover{
-    background: rgb(59,174,209);
-}
-
-.image{
-    width: 30%;
-    height: 60%;
-    position: absolute;
-    right: 80px;
-    bottom: 0;
-}
-
-.image img{
-    position:relative;
-    height: 100%;
-    left: 40%;
-    transform: translate(-55%);
-    bottom:4;
-    transition: left 2s ease;
-}
-
-.image:hover .victoriaa{
-    left: 55%;
-}
-
-.icons a{
-    text-decoration: none;
-    color: #000;
-}
-
-.icons ion-icon{
-    margin-left: 7%;
-    color: #000;
-    margin-right: -60px;
-    font-size: 40px;
-    transition: .4s ease;
-    
-}
-
-.icons ion-icon:hover{
-    color: rgb(59,174,209);
+  th,
+  td {
+    padding: 4px;
+  }
 }
