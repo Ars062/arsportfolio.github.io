@@ -119,10 +119,10 @@
   <div class="container">
     <h3 style="color: darkred;">CONTACT ME</h3>
 
-    <form id="contactForm" action="https://formsubmit.co/arsiddique10762@gmail.com" method="POST">
-       <input type="hidden" name="_captcha" value="false">
-       <input type="hidden" name="_template" value="box">
-       <input type="hidden" name="_subject" value="New Message from Portfolio">
+    <form id="contactForm">
+      <input type="hidden" name="_captcha" value="false">
+      <input type="hidden" name="_template" value="box">
+      <input type="hidden" name="_subject" value="New Message from Portfolio">
 
       <label for="name">Name:</label>
       <input type="text" id="name" name="name" placeholder="Your Name" required>
@@ -153,23 +153,53 @@
   </div>
 
   <script>
-  const sendWhatsApp = document.getElementById("sendWhatsApp");
+    const form = document.getElementById("contactForm");
+    const sendWhatsApp = document.getElementById("sendWhatsApp");
+    const thankYou = document.getElementById("thankYouMessage");
 
-  sendWhatsApp.addEventListener("click", function () {
-    const name = document.getElementById("name").value.trim();
-    const email = document.getElementById("email").value.trim();
-    const phone = document.getElementById("phone").value.trim();
-    const message = document.getElementById("message").value.trim();
+    // WhatsApp button functionality
+    sendWhatsApp.addEventListener("click", function () {
+      const name = document.getElementById("name").value.trim();
+      const email = document.getElementById("email").value.trim();
+      const phone = document.getElementById("phone").value.trim();
+      const message = document.getElementById("message").value.trim();
 
-    if (!name || !email || !phone || !message) {
-      alert("❌ Please fill all fields before sending.");
-      return;
-    }
+      if (!name || !email || !phone || !message) {
+        alert("❌ Please fill all fields before sending.");
+        return;
+      }
 
-    const whatsappNumber = "919883557734";
-    const fullMessage = `Hi, I'm ${name}. My email: ${email}, Phone: ${phone}. Message: ${message}`;
-    const whatsappURL = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(fullMessage)}`;
+      const whatsappNumber = "919883557734";
+      const fullMessage = `Hi, I'm ${name}. My email: ${email}, Phone: ${phone}. Message: ${message}`;
+      const whatsappURL = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(fullMessage)}`;
 
-    window.open(whatsappURL, "_blank");
-  });
-</script>
+      window.open(whatsappURL, "_blank");
+    });
+
+    // Email submission using fetch()
+    form.addEventListener("submit", function (e) {
+      e.preventDefault();
+
+      const formData = new FormData(form);
+
+      fetch("https://formsubmit.co/ajax/arsiddique10762@gmail.com", {
+        method: "POST",
+        body: formData,
+        headers: {
+          'Accept': 'application/json'
+        }
+      }).then(response => {
+        if (response.ok) {
+          form.reset();
+          form.style.display = "none";
+          thankYou.style.display = "block";
+        } else {
+          alert("❌ Something went wrong. Please try again.");
+        }
+      }).catch(error => {
+        alert("⚠️ Error submitting the form.");
+      });
+    });
+  </script>
+</body>
+</html>
