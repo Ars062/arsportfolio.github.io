@@ -101,7 +101,7 @@ ul li a:hover {
 }
 
 .image img {
-  max-width: 80%;
+  max-width: 40%;
   height: auto;
   transition: transform 0.4s ease;
 }
