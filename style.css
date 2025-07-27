@@ -54,8 +54,7 @@ ul li a:hover {
 }
 
 .info {
-  margin-left: 7%;
-  margin-top: 6%;
+  margin: 6% auto 0 auto;
   max-width: 90%;
   text-align: center;
 }
@@ -128,6 +127,17 @@ ul li a:hover {
 
 .icons ion-icon:hover {
   color: rgb(59,174,209);
+}
+table {
+  margin: 10px auto;
+  border-collapse: collapse;
+}
+
+th,
+td {
+  padding: 10px;
+  border: 1px solid #aaa;
+  text-align: center;
 }
 
 @media screen and (max-width: 768px) {
