@@ -1,76 +1,236 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>ars's portfolio</title>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
-    <script src="https://unpkg.com/ionicons@5.5.2/dist/ionicons.js"></script>
-    
-    
+  <meta charset="UTF-8">
+  <title>ARS's Portfolio</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- External CSS -->
+  <link rel="stylesheet" href="style.css">
+
+  <!-- Icons -->
+  <script src="https://unpkg.com/ionicons@5.5.2/dist/ionicons.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <style>
+    /* Hide all sections by default */
+    section { display: none; padding: 20px; }
+    section.active { display: block; }
+    nav a { cursor: pointer; }
+    .back-btn { cursor: pointer; }
+  </style>
 </head>
+
 <body style="background-color: aqua;">
-   
-    <div class="main">
-        <div class="navbar">
-            <img width="250px" src="https://github.com/Ars062/arsportfolio.github.io/blob/main/LOGOARS.png?raw=true" class="logo">
-            <ul>
-                <li><a href="index.html" target="_blank">HOME</a></li>
-                <li><a href="About.html" target="_blank">ABOUT</a></li>
-                <li><a href="Skill.html" target="_blank">SKILLS</a><li>
-                <li><a href="My work.html" target="_blank">MY WORKS</a></li>
-                <li><a href="contact.html" target="_blank">CONTACT</a></li>
-                
-            </ul>
-        </div>
+  <div class="main">
+    <!-- Navbar -->
+    <div class="navbar">
+      <img width="250px" src="https://github.com/Ars062/arsportfolio.github.io/blob/main/LOGOARS.png?raw=true" class="logo">
+      <ul>
+        <li><a data-page="home">HOME</a></li>
+        <li><a data-page="about">ABOUT</a></li>
+        <li><a data-page="skills">SKILLS</a></li>
+        <li><a data-page="work">MY WORKS</a></li>
+        <li><a data-page="contact">CONTACT</a></li>
+      </ul>
+    </div>
 
-        <div class="info">
-             <h3>Greetings and Warm Regards!<br>I'm <SPan>Siddique</SPan></h3>
-             <h2><span>D</span>ATA <SPan>S</SPan>CIENTIST</h2>
-             <h3>Data Analyst,Data Scientist and Frontend Developer <br>From Kolkata,India</h3>
-             <a href="contact.html">HIRE ME 🙋‍♂️</a>
-             <h4>EDUCATION</h4>
-            <table class="table">
-                <thead>
-                    <tr>
-                    <th>Class</th>
-                    <th>Board/University</th>
-                    <th>Percentage</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>10th</td>
-                        <td>WBBSE</td>
-                        <td>89.4</td>
-                    </tr>
-                    <tr>
-                        <td>12th</td>
-                        <td>WBCHSE</td>
-                        <td>94.6</td>
-                    </tr>
-                    <tr>
-                        <td>BE</td>
-                        <td>JU,kolkata</td>
-                        <td>Senior</td>
-                    </tr>
-                </tbody>
-            </table>
-        
-        </div>
-        <div class="image">          
-            <img src="https://github.com/Ars062/arsportfolio.github.io/blob/main/victoriaa.png?raw=true" class="victoriaa">   
-        </div>
-        
-        
-        <div class="icons">
-           <a href="https://www.facebook.com/profile.php?id=100090688633096&mibextid=ZbWKwL" target="_blank"><ion-icon name="logo-facebook"></ion-icon></a>
-           <a href="https://www.instagram.com/eccedentesiast_ars/" target="_blank"><ion-icon name="logo-instagram"></ion-icon></a>
-           <a href="https://www.linkedin.com/in/ars062/" target="_blank"><ion-icon name="logo-linkedin"></ion-icon></a>
-           <a href="https://github.com/Ars062" target="_blank"><ion-icon name="logo-Github"></ion-icon></a>
+    <!-- HOME -->
+    <section id="home" class="active">
+      <div class="info">
+        <h3>Greetings and Warm Regards!<br>I'm <span>Siddique</span></h3>
+        <h2><span>D</span>ATA <span>S</span>CIENTIST</h2>
+        <h3>Data Analyst, Data Scientist and Frontend Developer <br>From Kolkata, India</h3>
+        <a data-page="contact">HIRE ME 🙋‍♂️</a>
 
-       
-         </div>
-        
-   </div>
+        <h4>EDUCATION</h4>
+        <table class="table">
+          <thead>
+            <tr><th>Class</th><th>Board/University</th><th>Percentage</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>10th</td><td>WBBSE</td><td>89.4</td></tr>
+            <tr><td>12th</td><td>WBCHSE</td><td>94.6</td></tr>
+            <tr><td>BE</td><td>JU, Kolkata</td><td>Senior</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="image">
+        <img src="https://github.com/Ars062/arsportfolio.github.io/blob/main/victoriaa.png?raw=true" class="victoriaa">
+      </div>
+
+      <div class="icons">
+        <a href="https://www.facebook.com/profile.php?id=100090688633096&mibextid=ZbWKwL" target="_blank"><ion-icon name="logo-facebook"></ion-icon></a>
+        <a href="https://www.instagram.com/eccedentesiast_ars/" target="_blank"><ion-icon name="logo-instagram"></ion-icon></a>
+        <a href="https://www.linkedin.com/in/ars062/" target="_blank"><ion-icon name="logo-linkedin"></ion-icon></a>
+        <a href="https://github.com/Ars062" target="_blank"><ion-icon name="logo-github"></ion-icon></a>
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section id="about">
+      <h2>About Me</h2>
+      <p>
+        I am an ambitious and driven Pre-final-year undergraduate specializing
+        in <span>Electronics and Telecommunication Engineering</span> at
+        <span>Jadavpur University</span>.<br><br>
+        My academic foundation is built on expertise in digital and analog
+        electronics (CMOS), signal processing, communication systems,
+        microprocessors and microcontrollers (MPMC), antenna theory, and control engineering.<br><br>
+        Proficient in Python, MATLAB, MS Excel, MySQL, Power BI, HTML, CSS, and Canva.<br><br>
+        With a strong passion for data analysis and frontend development, I am particularly fascinated by
+        <span>IoT</span> and its applications, alongside hands-on experience with Arduino and Raspberry Pi.<br><br>
+        Enthralled by the ever-evolving world of technology,
+        I am eager to engage in innovative projects that challenge my abilities while contributing to meaningful advancements.
+      </p>
+    </section>
+
+    <!-- SKILLS -->
+    <section id="skills">
+      <h2>My Skills</h2>
+      <ul>
+        <li>PYTHON & PYTHON LIBRARIES</li>
+        <li>MS POWERPOINT</li>
+        <li>MS EXCEL</li>
+        <li>MS SQL</li>
+        <li>CANVA</li>
+        <li>POWER BI</li>
+        <li>MATLAB</li>
+        <li>HTML, CSS</li>
+        <li>DATA ANALYTICS</li>
+        <li>DATA SCIENCE</li>
+        <li>DATA VISUALIZATION</li>
+        <li>LLM / GEN-AI</li>
+        <li>APP DEVELOPMENT</li>
+      </ul>
+    </section>
+
+    <!-- WORK -->
+    <section id="work">
+      <h2>My Work</h2>
+      <ul>
+        <li><a href="https://www.tinkercad.com/things/bzi45nwTiya-etce-print">PROJECT ON ARDUINO: 'ETCE' PRINT</a></li>
+        <li><a href="https://www.tinkercad.com/things/8hZtHveRXc0-pir">PROJECT ON ARDUINO: PIR SENSOR, MOTION DETECTION</a></li>
+        <li>Ongoing Project: Third Eye: Blind Man’s Cap/Eyeglass Using Raspberry Pi Camera</li>
+        <li><a href="https://drive.google.com/file/d/1_qI_GKv-b6xBuGz59Sa3EbrJW9QWwHk_/view">SIH2024</a></li>
+        <li><a href="https://drive.google.com/file/d/1iWVXtWh8f45Wsm7EjwuaXLDElIK1QUt-/view">ICDMAI HACKATHON 2024</a></li>
+        <li><a href="https://drive.google.com/file/d/1iTnlHkLWSiPUrHIgXhwk04WJ03nsgtwH/view">CERTIFICATE ON PYTHON</a></li>
+        <li><a href="https://drive.google.com/file/d/1SftL5x_mLwKzdGAHWcffBYdpuM3X2h4l/view">CERTIFICATE ON FRONTEND DEVELOPMENT</a></li>
+        <li><a href="https://drive.google.com/file/d/1QbyQFNMjKHK23JqGarF__jwVsuj5scWN/view">CERTIFICATE ON DATA SCIENCE</a></li>
+        <li><a href="https://drive.google.com/file/d/1rQTeymEabYVGVP_8L3zSu6uy65l6chGG/view">CERTIFICATE ON APPLIED DATA SCIENCE WITH PYTHON</a></li>
+      </ul>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact">
+      <h1 style="color: royalblue;">CONTACT</h1>
+
+      <div class="container">
+        <h3 style="color: darkred;">CONTACT ME</h3>
+
+        <form id="contactForm">
+          <input type="hidden" name="_captcha" value="false">
+          <input type="hidden" name="_template" value="box">
+          <input type="hidden" name="_subject" value="New Message from Portfolio">
+
+          <label for="name">Name:</label>
+          <input type="text" id="name" name="name" placeholder="Your Name" required>
+
+          <label for="email">Email:</label>
+          <input type="email" id="email" name="email" placeholder="Your Email" required>
+
+          <label for="phone">Phone:</label>
+          <input type="tel" id="phone" name="phone" placeholder="Your Phone Number" required>
+
+          <label for="message">Message:</label>
+          <textarea id="message" name="message" placeholder="Type your message here..." rows="5" required></textarea>
+
+          <div class="button-group">
+            <button class="registation" type="button" id="sendWhatsApp">
+              <i class="fab fa-whatsapp"></i> WhatsApp
+            </button>
+
+            <button class="registation" type="submit" id="sendEmail">
+              <i class="fas fa-envelope"></i> Email
+            </button>
+          </div>
+        </form>
+
+        <div id="thankYouMessage" style="display:none; color:green; font-size:1.2rem;">
+          ✅ Thank you for reaching out! I'll get back to you soon.😊
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- JS Navigation -->
+  <script>
+    const links = document.querySelectorAll("[data-page]");
+    const sections = document.querySelectorAll("section");
+
+    function showSection(id) {
+      sections.forEach(sec => sec.classList.remove("active"));
+      document.getElementById(id).classList.add("active");
+      history.pushState({ page: id }, "", "#" + id);
+    }
+
+    links.forEach(link => {
+      link.addEventListener("click", e => {
+        e.preventDefault();
+        showSection(link.dataset.page);
+      });
+    });
+
+    window.addEventListener("popstate", e => {
+      const page = e.state?.page || "home";
+      showSection(page);
+    });
+
+    // Contact form
+    const form = document.getElementById("contactForm");
+    const sendWhatsApp = document.getElementById("sendWhatsApp");
+    const thankYou = document.getElementById("thankYouMessage");
+
+    sendWhatsApp.addEventListener("click", function () {
+      const name = document.getElementById("name").value.trim();
+      const email = document.getElementById("email").value.trim();
+      const phone = document.getElementById("phone").value.trim();
+      const message = document.getElementById("message").value.trim();
+
+      if (!name || !email || !phone || !message) {
+        alert("❌ Please fill all fields before sending.");
+        return;
+      }
+
+      const whatsappNumber = "919883557734";
+      const fullMessage = `Hi, I'm ${name}. My email: ${email}, Phone: ${phone}. Message: ${message}`;
+      const whatsappURL = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(fullMessage)}`;
+
+      window.open(whatsappURL, "_blank");
+    });
+
+    form.addEventListener("submit", function (e) {
+      e.preventDefault();
+
+      const formData = new FormData(form);
+
+      fetch("https://formsubmit.co/ajax/arsiddique10762@gmail.com", {
+        method: "POST",
+        body: formData,
+        headers: { "Accept": "application/json" }
+      }).then(response => {
+        if (response.ok) {
+          form.reset();
+          form.style.display = "none";
+          thankYou.style.display = "block";
+        } else {
+          alert("❌ Something went wrong. Please try again.");
+        }
+      }).catch(() => {
+        alert("⚠️ Error submitting the form.");
+      });
+    });
+  </script>
 </body>
+</html>
