@@ -12,12 +12,12 @@ body {
   background: url('https://raw.githubusercontent.com/Ars062/arsportfolio.github.io/main/victoriaa.png') 
               no-repeat center center;
   background-size: cover;
-  background-attachment: fixed;
   position: relative;
   margin: 0;
   padding: 0;
   overflow: hidden;
 }
+
 
 
 .navbar {
