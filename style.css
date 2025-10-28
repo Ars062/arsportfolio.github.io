@@ -12,6 +12,8 @@ body {
   min-height: 100vh;
   position: relative;
   Margin: 5px;
+  background-size: contain;
+  background-color: #000;
 }
 
 .navbar {
