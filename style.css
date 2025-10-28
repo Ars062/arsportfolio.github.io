@@ -7,9 +7,9 @@ body {
   font-family: sans-serif;
 }
 .main {
-  width: 100%;
+  width: 80%;
   background: url('https://raw.githubusercontent.com/Ars062/arsportfolio.github.io/main/victoriaa.png') no-repeat center center/cover;
-  min-height: 100vh;
+  min-height: 70vh;
   position: relative;
   Margin: 5px;
 }
