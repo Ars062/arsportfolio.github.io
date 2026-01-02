@@ -10,7 +10,7 @@
     <script src="https://unpkg.com/ionicons@5.5.2/dist/ionicons.js"></script>
    
     <!-- OpenReplay Tracking Code for my first project -->
-<script>
+<!-- <script>
   var initOpts = {
     projectKey: "oygt9x5Sinq76Ugds9of",
     // 0 - plain, 1 - obscured, 2 - ignored
@@ -36,7 +36,7 @@
 </script>
     
  <!-- posthog -->
-    <script>
+    <!-- <script>
 !function(t,e){var o,n,p,r;e.__SV||(window.posthog && window.posthog.__loaded)||(window.posthog=e,e._i=[],e.init=function(i,s,a){function g(t,e){var o=e.split(".");2==o.length&&(t=t[o[0]],e=o[1]),t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}}(p=t.createElement("script")).type="text/javascript",p.crossOrigin="anonymous",p.async=!0,p.src=s.api_host.replace(".i.posthog.com","-assets.i.posthog.com")+"/static/array.js",(r=t.getElementsByTagName("script")[0]).parentNode.insertBefore(p,r);var u=e;for(void 0!==a?u=e[a]=[]:a="posthog",u.people=u.people||[],u.toString=function(t){var e="posthog";return"posthog"!==a&&(e+="."+a),t||(e+=" (stub)"),e},u.people.toString=function(){return u.toString(1)+".people (stub)"},o="init Xr es pi Zr rs Kr Qr capture Ni calculateEventProperties os register register_once register_for_session unregister unregister_for_session ds getFeatureFlag getFeatureFlagPayload isFeatureEnabled reloadFeatureFlags updateEarlyAccessFeatureEnrollment getEarlyAccessFeatures on onFeatureFlags onSurveysLoaded onSessionId getSurveys getActiveMatchingSurveys renderSurvey displaySurvey cancelPendingSurvey canRenderSurvey canRenderSurveyAsync identify setPersonProperties group resetGroups setPersonPropertiesForFlags resetPersonPropertiesForFlags setGroupPropertiesForFlags resetGroupPropertiesForFlags reset get_distinct_id getGroups get_session_id get_session_replay_url alias set_config startSessionRecording stopSessionRecording sessionRecordingStarted captureException startExceptionAutocapture stopExceptionAutocapture loadToolbar get_property getSessionProperty us ns createPersonProfile hs Vr vs opt_in_capturing opt_out_capturing has_opted_in_capturing has_opted_out_capturing get_explicit_consent_status is_capturing clear_opt_in_out_capturing ss debug O ls getPageViewId captureTraceFeedback captureTraceMetric qr".split(" "),n=0;n<o.length;n++)g(u,o[n]);e._i.push([i,s,a])},e.__SV=1)}(document,window.posthog||[]);
 
 posthog.init('phc_9SgWP8QS4Hzj5eLbBnAZyfbalcik0zIS2Vx0JhDLvxr', {
@@ -53,7 +53,7 @@ document.addEventListener("click", function(e){
         url: window.location.href
     });
 });
-</script>
+</script> --> -->
 
     
 </head>
@@ -126,6 +126,38 @@ document.addEventListener("click", function(e){
         t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
         y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
     })(window, document, "clarity", "script", "uovqvlr3my");
+        
     </script>
+    <script>
+  // Create persistent anonymous user ID
+  if (!localStorage.getItem("uid")) {
+    localStorage.setItem("uid", crypto.randomUUID());
+  }
+  window.USER_ID = localStorage.getItem("uid");
+</script>
+
     <script defer src="https://cloud.umami.is/script.js" data-website-id="77803d41-b90c-48b5-8863-230d0f80d22e"></script>
+    <script>
+  window.addEventListener("load", () => {
+    if (window.umami) {
+      umami.track("page_view", {
+        uid: window.USER_ID,
+        page: location.pathname
+      });
+    }
+  });
+</script>
+    <script>
+document.addEventListener("click", function (e) {
+  if (!window.umami) return;
+
+  umami.track("click", {
+    uid: window.USER_ID,
+    tag: e.target.tagName,
+    text: e.target.innerText?.slice(0, 50)
+  });
+});
+</script>
+
+
 </body>
