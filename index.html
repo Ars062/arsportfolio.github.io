@@ -129,15 +129,17 @@ document.addEventListener("click", function(e){
         
     </script>
     <script>
-  // Create persistent anonymous user ID
+  //  Persistent UID
   if (!localStorage.getItem("uid")) {
     localStorage.setItem("uid", crypto.randomUUID());
   }
   window.USER_ID = localStorage.getItem("uid");
 </script>
 
-    <script defer src="https://cloud.umami.is/script.js" data-website-id="77803d41-b90c-48b5-8863-230d0f80d22e"></script>
-    <script>
+<script defer src="https://cloud.umami.is/script.js" data-website-id="77803d41-b90c-48b5-8863-230d0f80d22e"></script>
+
+<script>
+  //  Page view tracking
   window.addEventListener("load", () => {
     if (window.umami) {
       umami.track("page_view", {
@@ -146,18 +148,35 @@ document.addEventListener("click", function(e){
       });
     }
   });
-</script>
-    <script>
-document.addEventListener("click", function (e) {
-  if (!window.umami) return;
 
-  umami.track("click", {
-    uid: window.USER_ID,
-    tag: e.target.tagName,
-    text: e.target.innerText?.slice(0, 50)
+  // Click tracking
+  document.addEventListener("click", function (e) {
+    if (!window.umami) return;
+
+    umami.track("click", {
+      uid: window.USER_ID,
+      tag: e.target.tagName,
+      text: e.target.innerText?.slice(0, 50)
+    });
   });
-});
+
+  // Scroll depth tracking
+  let maxScroll = 0;
+  window.addEventListener("scroll", () => {
+    const scroll = Math.round(
+      (window.scrollY + window.innerHeight) /
+      document.body.scrollHeight * 100
+    );
+    if (scroll > maxScroll) maxScroll = scroll;
+  });
+
+  window.addEventListener("beforeunload", () => {
+    if (window.umami) {
+      umami.track("scroll_depth", {
+        uid: window.USER_ID,
+        depth: maxScroll
+      });
+    }
+  });
 </script>
-
-
 </body>
