@@ -142,7 +142,7 @@ function App() {
         <section className="section section-about" id="about">
           <h2>About</h2>
           <p>
-            I am an ambitious final-year undergraduate in Electronics and Telecommunication
+            I am an ambitious graduate in Electronics and Telecommunication
             Engineering at Jadavpur University. My foundation includes digital and analog
             electronics, signal processing, communication systems, microprocessors, and control
             engineering.
@@ -156,13 +156,16 @@ function App() {
 
         <section className="section section-experience" id="experience">
           <h2>Experience</h2>
-          <p>
-            <a href="https://yukin.ai/" target="_blank" rel="noreferrer" className="company-link">
-              <ion-icon name="rocket-outline" class="company-icon"></ion-icon>
-              Yukin AI
-            </a>
-            &nbsp;&mdash; Data Scientist and AI Engineer (from November 2025 to present).
-          </p>
+          <div className="exp-block">
+            <div className="exp-company">
+              <a href="https://yukin.ai/" target="_blank" rel="noreferrer" className="company-link">
+                <ion-icon name="rocket-outline" class="company-icon"></ion-icon>
+                Yukin AI
+              </a>
+            </div>
+            <div className="exp-role">Data Scientist and AI Engineer</div>
+            <div className="exp-date">Nov&rsquo;2025 &mdash; Present</div>
+          </div>
         </section>
 
         <section className="section section-skills" id="skills">

@@ -242,6 +242,28 @@ h2::after {
   opacity: 0.3;
 }
 
+.exp-block {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+
+.exp-company {
+  margin-bottom: 0.1rem;
+}
+
+.exp-role {
+  font-weight: 700;
+  color: var(--text-heading);
+  font-size: 0.95rem;
+}
+
+.exp-date {
+  color: var(--text-muted);
+  font-size: 0.85rem;
+  font-weight: 500;
+}
+
 .company-link {
   color: #1565c0;
   text-decoration: none;
