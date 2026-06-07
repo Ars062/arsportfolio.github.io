@@ -109,6 +109,7 @@ function App() {
           </a>
           <div className="nav-links">
             <a href="#about">About</a>
+            <a href="#experience">Experience</a>
             <a href="#skills">Skills</a>
             <a href="#work">Work</a>
             <a href="#contact">Contact</a>
@@ -122,6 +123,7 @@ function App() {
             I am Siddique, based in Kolkata, India. I work on data analysis, machine learning,
             and practical product interfaces.
           </p>
+          <p>Open to roles: Data Analyst, Data Scientist, and GenAI Developer.</p>
           <a className="primary-btn" href="#contact">
             Hire Me
           </a>
@@ -142,6 +144,11 @@ function App() {
             am especially interested in IoT, Arduino, Raspberry Pi, and projects where data and
             user experience meet.
           </p>
+        </section>
+
+        <section className="section" id="experience">
+          <h2>Experience</h2>
+          <p>Data Scientist and AI Engineer at Yukin AI (from November 2025 to present).</p>
         </section>
 
         <section className="section" id="skills">
