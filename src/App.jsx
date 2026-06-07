@@ -141,15 +141,13 @@ function App() {
         <section className="section section-about" id="about">
           <h2>About</h2>
           <p>
-            I am an ambitious graduate in Electronics and Telecommunication
-            Engineering at Jadavpur University. My foundation includes digital and analog
-            electronics, signal processing, communication systems, microprocessors, and control
-            engineering.
+            AI Engineer with a strong foundation in Data Science, specializing in Generative AI,
+            Computer Vision, and LLM-based systems. Hands-on experience building end-to-end
+            multimodal pipelines involving ASR, RAG, and real-time video analytics.
           </p>
           <p>
-            I use Python, Excel, SQL, Power BI, HTML, and CSS to solve real problems. I
-            am especially interested in IoT, Arduino, Raspberry Pi, and projects where data and
-            user experience meet.
+            Proficient in Python and SQL, with experience in deploying GPU-accelerated AI
+            solutions using Docker and cloud platforms. Graduate from Jadavpur University.
           </p>
         </section>
 
