@@ -1,4 +1,3 @@
-import logo from "../LOGOARS.png";
 import profilePic from "../myphoto.jpeg";
 
 const skills = [
@@ -104,9 +103,7 @@ function App() {
     <div className="page">
       <header className="hero" id="home">
         <nav className="navbar">
-          <a className="brand" href="#home" aria-label="Ars home">
-            <img className="brand-logo" src={logo} alt="Ars logo" />
-          </a>
+          <a className="brand" href="#home" aria-label="Ars home">Ars</a>
           <div className="nav-links">
             <a href="#about">About</a>
             <a href="#experience">Experience</a>
