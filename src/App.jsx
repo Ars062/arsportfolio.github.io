@@ -13,10 +13,6 @@ const skills = [
 
 const works = [
   {
-    title: "Third Eye cap/eyeglass for visually impaired (Ongoing)",
-    link: ""
-  },
-  {
     title: "Arduino project: ETCE print",
     link: "https://www.tinkercad.com/things/bzi45nwTiya-etce-print"
   },
