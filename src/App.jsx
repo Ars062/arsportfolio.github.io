@@ -4,7 +4,6 @@ const skills = [
   "Python and Python libraries",
   "SQL and MySQL",
   "Power BI and Excel",
-  "MATLAB",
   "Data analytics",
   "Data science",
   "Data visualization",
@@ -148,7 +147,7 @@ function App() {
             engineering.
           </p>
           <p>
-            I use Python, MATLAB, Excel, SQL, Power BI, HTML, and CSS to solve real problems. I
+            I use Python, Excel, SQL, Power BI, HTML, and CSS to solve real problems. I
             am especially interested in IoT, Arduino, Raspberry Pi, and projects where data and
             user experience meet.
           </p>
