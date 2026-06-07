@@ -1,4 +1,5 @@
 import logo from "../LOGOARS.png";
+import profilePic from "../myphoto.jpeg";
 
 const skills = [
   "Python and Python libraries",
@@ -8,11 +9,15 @@ const skills = [
   "Data analytics",
   "Data science",
   "Data visualization",
-  "LLM and GenAI",
-  "Frontend development"
+  "Gen AI",
+  "Docker"
 ];
 
 const works = [
+  {
+    title: "Third Eye cap/eyeglass for visually impaired (Ongoing)",
+    link: ""
+  },
   {
     title: "Arduino project: ETCE print",
     link: "https://www.tinkercad.com/things/bzi45nwTiya-etce-print"
@@ -20,10 +25,6 @@ const works = [
   {
     title: "Arduino project: PIR motion detection",
     link: "https://www.tinkercad.com/things/8hZtHveRXc0-pir"
-  },
-  {
-    title: "Ongoing project: Third Eye cap/eyeglass for visually impaired",
-    link: ""
   },
   {
     title: "SIH 2024",
@@ -103,9 +104,8 @@ function App() {
     <div className="page">
       <header className="hero" id="home">
         <nav className="navbar">
-          <a className="brand" href="#home" aria-label="Ars Siddique home">
-            <img className="brand-logo" src={logo} alt="Ars Siddique logo" />
-            <span>Ars Siddique</span>
+          <a className="brand" href="#home" aria-label="Ars home">
+            <img className="brand-logo" src={logo} alt="Ars logo" />
           </a>
           <div className="nav-links">
             <a href="#about">About</a>
@@ -117,21 +117,32 @@ function App() {
         </nav>
 
         <div className="hero-content">
-          <p className="eyebrow">Greetings and warm regards</p>
-          <h1>Data Scientist and Frontend Developer</h1>
-          <p>
-            I am Siddique, based in Kolkata, India. I work on data analysis, machine learning,
-            and practical product interfaces.
-          </p>
-          <p>Open to roles: Data Analyst, Data Scientist, and GenAI Developer.</p>
-          <a className="primary-btn" href="#contact">
-            Hire Me
-          </a>
+          <div className="hero-left">
+            <div className="hero-photo">
+              <img src={profilePic} alt="Abdur Rahaman Siddique" />
+            </div>
+          </div>
+          <div className="hero-right">
+            <p className="eyebrow">Greetings and warm regards</p>
+            <h1>
+              I'm<br />
+              <span className="full-name">ABDUR RAHAMAN SIDDIQUE</span><br />
+              <span className="title-line">Data Scientist / Gen AI Developer</span>
+            </h1>
+            <p>
+              Based in Kolkata, India. I work on data analysis, machine learning,
+              and practical product interfaces.
+            </p>
+            <p>Open to roles: Data Analyst, Data Scientist, and GenAI Developer.</p>
+            <a className="primary-btn" href="#contact">
+              Hire Me
+            </a>
+          </div>
         </div>
       </header>
 
       <main>
-        <section className="section" id="about">
+        <section className="section section-about" id="about">
           <h2>About</h2>
           <p>
             I am an ambitious final-year undergraduate in Electronics and Telecommunication
@@ -146,12 +157,18 @@ function App() {
           </p>
         </section>
 
-        <section className="section" id="experience">
+        <section className="section section-experience" id="experience">
           <h2>Experience</h2>
-          <p>Data Scientist and AI Engineer at Yukin AI (from November 2025 to present).</p>
+          <p>
+            <a href="https://yukin.ai/" target="_blank" rel="noreferrer" className="company-link">
+              <ion-icon name="rocket-outline" class="company-icon"></ion-icon>
+              Yukin AI
+            </a>
+            &nbsp;&mdash; Data Scientist and AI Engineer (from November 2025 to present).
+          </p>
         </section>
 
-        <section className="section" id="skills">
+        <section className="section section-skills" id="skills">
           <h2>Skills</h2>
           <div className="chip-grid">
             {skills.map((skill) => (
@@ -162,7 +179,7 @@ function App() {
           </div>
         </section>
 
-        <section className="section" id="work">
+        <section className="section section-work" id="work">
           <h2>My Work</h2>
           <ul className="work-list">
             {works.map((work) => (
@@ -179,7 +196,7 @@ function App() {
           </ul>
         </section>
 
-        <section className="section" id="contact">
+        <section className="section section-contact" id="contact">
           <h2>Contact</h2>
           <form className="contact-form" onSubmit={handleSubmit}>
             <input type="hidden" name="_captcha" value="false" />
@@ -200,27 +217,28 @@ function App() {
 
             <div className="button-row">
               <button type="button" onClick={handleWhatsApp}>
-                Send via WhatsApp
+                <ion-icon name="logo-whatsapp"></ion-icon> WhatsApp
               </button>
-              <button type="submit">Send via Email</button>
+              <button type="submit">
+                <ion-icon name="mail-outline"></ion-icon> Email
+              </button>
             </div>
 
             <p id="submitMessage" className="submit-message" />
           </form>
 
           <div className="social-row">
-            <a href="https://www.linkedin.com/in/ars062/" target="_blank" rel="noreferrer">
-              LinkedIn
+            <a href="https://www.linkedin.com/in/ars062/" target="_blank" rel="noreferrer" aria-label="LinkedIn">
+              <ion-icon name="logo-linkedin"></ion-icon>
             </a>
-            <a href="https://github.com/Ars062" target="_blank" rel="noreferrer">
-              GitHub
+            <a href="https://github.com/Ars062" target="_blank" rel="noreferrer" aria-label="GitHub">
+              <ion-icon name="logo-github"></ion-icon>
             </a>
-            <a
-              href="https://www.instagram.com/eccedentesiast_ars/"
-              target="_blank"
-              rel="noreferrer"
-            >
-              Instagram
+            <a href="https://www.instagram.com/eccedentesiast_ars/" target="_blank" rel="noreferrer" aria-label="Instagram">
+              <ion-icon name="logo-instagram"></ion-icon>
+            </a>
+            <a href="https://m.facebook.com/abdur.rahaman.siddique.2025/" target="_blank" rel="noreferrer" aria-label="Facebook">
+              <ion-icon name="logo-facebook"></ion-icon>
             </a>
           </div>
         </section>
