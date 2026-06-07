@@ -164,6 +164,7 @@ function App() {
               </a>
             </div>
             <div className="exp-role">Data Scientist and AI Engineer</div>
+            <div className="exp-location">Australia, Remote</div>
             <div className="exp-date">Nov&rsquo;2025 &mdash; Present</div>
           </div>
         </section>
