@@ -209,10 +209,10 @@ function HomePage() {
           <h4>The Solution: Iterative Active Learning</h4>
           <p>Instead of labeling everything manually, we used an iterative loop:</p>
           <pre className="blog-code">
-GroundingDINO (zero-shot) → Verify 300 → Train v0
-    → Auto-label 700 more → Verify → Train v1 (1K)
-    → Auto-label 1K more → Verify → Train v2 (2K)
-    → ... repeat until 6,500+</pre>
+GroundingDINO (zero-shot) → Verify 300 → Train R1
+    → Auto-label 700 more → Verify → Train R2 (1K)
+    → Auto-label 1K more → Verify → Train R3 (2K)
+    → ... repeat until R6 (6,500+)</pre>
 
           <h4>Results</h4>
           <ul>
@@ -227,10 +227,9 @@ GroundingDINO (zero-shot) → Verify 300 → Train v0
                 <tr><th>Round</th><th>Labels</th><th>mAP</th></tr>
               </thead>
               <tbody>
-                <tr><td>v0</td><td>300</td><td>~0.40</td></tr>
-                <tr><td>v1</td><td>1,000</td><td>~0.65</td></tr>
-                <tr><td>v2</td><td>2,000</td><td>~0.75</td></tr>
-                <tr><td>v3</td><td>3,000+</td><td>~0.80</td></tr>
+                <tr><td>R1</td><td>300</td><td>~0.40</td></tr>
+                <tr><td>R2</td><td>1,000</td><td>~0.65</td></tr>
+                <tr><td>R3</td><td>2,000</td><td>~0.75</td></tr>
                 <tr><td>R4</td><td>3,600</td><td><strong>0.828</strong></td></tr>
                 <tr><td>R5</td><td>5,200</td><td><strong>0.821</strong> (+blank handling)</td></tr>
                 <tr><td>R6</td><td>6,500</td><td><strong>0.826</strong></td></tr>
