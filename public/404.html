@@ -3,8 +3,10 @@
 <head>
   <meta charset="utf-8">
   <script>
-    sessionStorage.redirect = window.location.pathname;
-    window.location.replace("/arsportfolio.github.io/");
+    var segment = window.location.pathname.replace(/^\/arsportfolio\.github\.io/, "");
+    if (segment && segment !== "/") {
+      window.location.replace("/arsportfolio.github.io/#!/blog" + segment.replace("/blog", ""));
+    }
   </script>
 </head>
 <body></body>
