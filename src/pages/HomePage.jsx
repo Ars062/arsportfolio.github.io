@@ -1,4 +1,3 @@
-import { Link } from "react-router-dom";
 import profilePic from "../../myphoto.jpeg";
 
 const skills = [
@@ -110,8 +109,8 @@ function HomePage() {
             <a href="#experience" onClick={(e) => { e.preventDefault(); scrollTo("experience"); }}>Experience</a>
             <a href="#skills" onClick={(e) => { e.preventDefault(); scrollTo("skills"); }}>Skills</a>
             <a href="#work" onClick={(e) => { e.preventDefault(); scrollTo("work"); }}>Work</a>
+            <a href="#blog" onClick={(e) => { e.preventDefault(); scrollTo("blog"); }}>Blog</a>
             <a href="#contact" onClick={(e) => { e.preventDefault(); scrollTo("contact"); }}>Contact</a>
-            <Link to="/blog/smart-annotation">Blog</Link>
           </div>
         </nav>
 
@@ -195,6 +194,81 @@ function HomePage() {
               </li>
             ))}
           </ul>
+        </section>
+
+        <section className="section section-blog" id="blog">
+          <h2>Blog</h2>
+          <h3>From 300 to 6,500 Labels: How We Built a Cricket Detection Dataset Without Labeling Everything by Hand</h3>
+
+          <h4>The Problem</h4>
+          <p>
+            Labeling objects in cricket videos is painfully slow. We had a goal: build a high-quality cricket detection dataset
+            (~6,500 labeled frames) covering umpire, batsman, and fielder — without spending weeks on manual annotation.
+          </p>
+
+          <h4>The Solution: Iterative Active Learning</h4>
+          <p>Instead of labeling everything manually, we used an iterative loop:</p>
+          <pre className="blog-code">
+GroundingDINO (zero-shot) → Verify 300 → Train v0
+    → Auto-label 700 more → Verify → Train v1 (1K)
+    → Auto-label 1K more → Verify → Train v2 (2K)
+    → ... repeat until 6,500+</pre>
+
+          <h4>Results</h4>
+          <ul>
+            <li><strong>mAP 50:95 = 0.826</strong></li>
+            <li><strong>mAP 50 = 0.951</strong></li>
+            <li><strong>F1 = 0.907</strong></li>
+          </ul>
+
+          <div className="blog-table-wrap">
+            <table className="blog-table">
+              <thead>
+                <tr><th>Round</th><th>Labels</th><th>mAP</th></tr>
+              </thead>
+              <tbody>
+                <tr><td>v0</td><td>300</td><td>~0.40</td></tr>
+                <tr><td>v1</td><td>1,000</td><td>~0.65</td></tr>
+                <tr><td>v2</td><td>2,000</td><td>~0.75</td></tr>
+                <tr><td>v3</td><td>3,000+</td><td>~0.80</td></tr>
+                <tr><td>R4</td><td>3,600</td><td><strong>0.828</strong></td></tr>
+                <tr><td>R5</td><td>5,200</td><td><strong>0.821</strong> (+blank handling)</td></tr>
+                <tr><td>R6</td><td>6,500</td><td><strong>0.826</strong></td></tr>
+              </tbody>
+            </table>
+          </div>
+
+          <p>
+            Video demo of the annotation tool in action:
+          </p>
+          <div className="video-embed">
+            <iframe
+              src="https://drive.google.com/file/d/1KiHPDI2LvU3RDNgq1TAYkqdxnPwGyPrC/preview"
+              width="100%"
+              height="400"
+              allow="autoplay"
+              allowFullScreen
+              title="Annotation tool demo"
+            />
+          </div>
+
+          <h4>Handling Blank Frames</h4>
+          <p>
+            We added <strong>150 blank frames</strong> with <strong>empty label files</strong> so the model learns to
+            output nothing on empty frames — eliminating false positives and hallucination.
+          </p>
+
+          <h4>Key Takeaways</h4>
+          <ol>
+            <li>Start with 300 zero-shot labels and let the model help you label the rest.</li>
+            <li>Better model → better auto-labels → faster verification → more data → better model.</li>
+            <li>300 carefully verified labels beat 3,000 noisy ones.</li>
+            <li>Add blank frames with empty labels to kill false positives.</li>
+          </ol>
+
+          <p className="blog-footer">
+            <em>Built with RF-DETR, GroundingDINO, PyQt6, and a lot of cricket footage.</em>
+          </p>
         </section>
 
         <section className="section section-contact" id="contact">
