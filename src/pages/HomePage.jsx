@@ -1,14 +1,28 @@
 import profilePic from "../../myphoto.jpeg";
 
+const skillLogos = {
+  python: "https://cdn.simpleicons.org/python",
+  mysql: "https://cdn.simpleicons.org/mysql",
+  excel: "https://cdn.jsdelivr.net/npm/simple-icons@5/icons/microsoftexcel.svg",
+  scikitlearn: "https://cdn.simpleicons.org/scikitlearn",
+  opencv: "https://cdn.simpleicons.org/opencv",
+  huggingface: "https://cdn.simpleicons.org/huggingface",
+  langchain: "https://cdn.simpleicons.org/langchain",
+  docker: "https://cdn.simpleicons.org/docker"
+};
+
 const skills = [
-  "Python and Python libraries",
-  "SQL and MySQL",
-  "Power BI and Excel",
-  "Data analytics",
-  "Data science",
-  "Data visualization",
-  "Gen AI",
-  "Docker"
+  { name: "Python and Python libraries", icon: skillLogos.python },
+  { name: "Machine Learning", icon: skillLogos.scikitlearn },
+  { name: "Computer Vision", icon: skillLogos.opencv },
+  { name: "Gen AI", icon: skillLogos.huggingface },
+  { name: "LLMs & RAG", icon: skillLogos.langchain },
+  { name: "SQL and MySQL", icon: skillLogos.mysql },
+  { name: "Power BI and Excel", icon: skillLogos.excel },
+  { name: "Data science" },
+  { name: "Data analytics" },
+  { name: "Data visualization" },
+  { name: "Docker", icon: skillLogos.docker }
 ];
 
 const works = [
@@ -172,8 +186,11 @@ function HomePage() {
           <h2>Skills</h2>
           <div className="chip-grid">
             {skills.map((skill) => (
-              <span key={skill} className="chip">
-                {skill}
+              <span key={skill.name} className="chip">
+                {skill.icon && (
+                  <img src={skill.icon} alt="" className="chip-icon" loading="lazy" />
+                )}
+                {skill.name}
               </span>
             ))}
           </div>

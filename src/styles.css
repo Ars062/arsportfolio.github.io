@@ -349,7 +349,16 @@ h2::after {
   color: var(--text-body);
   font-size: 0.9rem;
   font-weight: 500;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
   transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.chip-icon {
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
 }
 
 .chip:hover {
