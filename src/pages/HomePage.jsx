@@ -139,13 +139,13 @@ function HomePage() {
             <h1>
               I'm<br />
               <span className="full-name">ABDUR RAHAMAN SIDDIQUE</span><br />
-              <span className="title-line">Data Scientist / Gen AI Developer</span>
+              <span className="title-line">AI Engineer / Computer Vision Engineer / Data Scientist</span>
             </h1>
             <p>
               Based in Kolkata, India. I work on data analysis, machine learning,
               and practical product interfaces.
             </p>
-            <p>Open to roles: Data Analyst, Data Scientist, and GenAI Developer.</p>
+            <p>Open to roles: AI Engineer, Computer Vision Engineer, Data Scientist, and Data Analyst.</p>
             <a className="primary-btn" href="#contact" onClick={(e) => { e.preventDefault(); scrollTo("contact"); }}>
               Hire Me
             </a>
@@ -157,8 +157,8 @@ function HomePage() {
         <section className="section section-about" id="about">
           <h2>About</h2>
           <p>
-            AI Engineer with a strong foundation in Data Science, specializing in Generative AI,
-            Computer Vision, and LLM-based systems. Hands-on experience building end-to-end
+            AI Engineer with a strong foundation in Data Science and Computer Vision, specializing in Generative AI,
+            and LLM-based systems. Hands-on experience building end-to-end
             multimodal pipelines involving ASR, RAG, and real-time video analytics.
           </p>
           <p>
