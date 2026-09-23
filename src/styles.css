@@ -410,9 +410,23 @@ h2::after {
 
 .button-row {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 0.7rem;
   margin-top: 0.3rem;
+}
+
+.button-row .primary-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.45rem;
+  margin-top: 0;
+  text-align: center;
+}
+
+.button-row .primary-btn ion-icon {
+  font-size: 1.05rem;
+  flex-shrink: 0;
 }
 
 button {

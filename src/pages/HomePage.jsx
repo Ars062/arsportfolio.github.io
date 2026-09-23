@@ -149,6 +149,9 @@ function HomePage() {
             <a className="primary-btn" href="#contact" onClick={(e) => { e.preventDefault(); scrollTo("contact"); }}>
               Hire Me
             </a>
+            <a className="primary-btn calendly-btn" href="https://calendly.com/arsiddique10762/30min" target="_blank" rel="noopener noreferrer">
+              <ion-icon name="calendar-outline"></ion-icon> Book a Call
+            </a>
           </div>
         </div>
       </header>
@@ -307,6 +310,9 @@ GroundingDINO (zero-shot) → Verify 300 → Train R1
             <textarea id="message" name="message" rows="5" required />
 
             <div className="button-row">
+              <a className="primary-btn calendly-btn" href="https://calendly.com/arsiddique10762/30min" target="_blank" rel="noopener noreferrer">
+                <ion-icon name="calendar-outline"></ion-icon> Book a Call
+              </a>
               <button type="button" onClick={handleWhatsApp}>
                 <ion-icon name="logo-whatsapp"></ion-icon> WhatsApp
               </button>
