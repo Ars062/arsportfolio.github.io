@@ -366,6 +366,132 @@ h2::after {
   box-shadow: 0 4px 12px rgba(0,0,0,0.1);
 }
 
+.work-subheading {
+  margin: 1.4rem 0 0.6rem;
+  font-size: 1rem;
+  color: var(--text-heading);
+}
+
+.project-grid {
+  display: grid;
+  gap: 1.2rem;
+}
+
+.project-card {
+  background: #fff;
+  border: 1px solid rgba(0, 0, 0, 0.07);
+  border-radius: 16px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.project-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.12);
+}
+
+.project-gallery {
+  display: grid;
+  gap: 0.6rem;
+  padding: 0.6rem 0.6rem 0;
+}
+
+.project-gallery:has(.project-shot + .project-shot) {
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+}
+
+.project-shot {
+  margin: 0;
+  border-radius: 10px;
+  overflow: hidden;
+  background: #f3f4f6;
+}
+
+.project-shot img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  object-position: top center;
+}
+
+.project-shot figcaption {
+  padding: 0.35rem 0.5rem;
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  background: #fafafa;
+}
+
+.project-body {
+  padding: 0.9rem 1.1rem 1.1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.project-body h3 {
+  margin: 0 0 0.15rem;
+  font-size: 1.05rem;
+  color: var(--text-heading);
+}
+
+.project-subtitle {
+  margin: 0 0 0.5rem;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #9c27b0;
+}
+
+.project-desc {
+  margin: 0 0 0.8rem;
+  font-size: 0.9rem;
+  line-height: 1.6;
+  color: var(--text-body);
+}
+
+.project-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-bottom: 0.9rem;
+}
+
+.tag-chip {
+  border: 1px solid #e0c4ea;
+  background: #f9f2fb;
+  color: #6a1b9a;
+  border-radius: 999px;
+  padding: 0.2rem 0.6rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+
+.project-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  margin-top: auto;
+  text-decoration: none;
+  background: var(--accent);
+  color: #fff;
+  font-weight: 700;
+  font-size: 0.85rem;
+  padding: 0.55rem 1.1rem;
+  border-radius: 999px;
+  transition: background 0.25s ease, transform 0.2s ease;
+}
+
+.project-link:hover {
+  background: var(--accent-hover);
+  transform: translateY(-2px);
+}
+
+.project-link ion-icon {
+  font-size: 1rem;
+}
+
 .work-list {
   margin: 0;
   padding-left: 1.15rem;

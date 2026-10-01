@@ -1,4 +1,9 @@
 import profilePic from "../../myphoto.jpeg";
+import vendorchatDashboard from "../assets/projects/vendorchat-dashboard.png";
+import bangaloreHomePrice from "../assets/projects/bangalore-home-price-1.png";
+import airlineRatingDist from "../assets/projects/airline-rating-dist.png";
+import airlineRecoByAirline from "../assets/projects/airline-reco-by-airline.png";
+import airlineDataikuFlow from "../assets/projects/airline-dataiku-flow.png";
 
 const skillLogos = {
   python: "https://cdn.simpleicons.org/python",
@@ -25,15 +30,65 @@ const skills = [
   { name: "Docker", icon: skillLogos.docker }
 ];
 
-const works = [
+const projects = [
   {
-    title: "Arduino project: ETCE print",
-    link: "https://www.tinkercad.com/things/bzi45nwTiya-etce-print"
+    title: "VendorChat",
+    subtitle: "Vendor sales analytics with an AI SQL chatbot",
+    description:
+      "Ingested 15M+ vendor transactions into SQLite, built a Power BI dashboard for profit, ROI, margin and stock turnover, then wired a LangChain + Groq agent that answers plain-English questions using FAISS few-shot SQL retrieval.",
+    tags: ["Python", "LangChain", "Groq LLM", "FAISS", "Streamlit", "SQLite", "Power BI"],
+    github: "https://github.com/Ars062/VendorChat",
+    images: [
+      {
+        src: vendorchatDashboard,
+        alt: "Vendor sales performance dashboard",
+        caption: "Vendor sales performance dashboard"
+      }
+    ]
   },
   {
-    title: "Arduino project: PIR motion detection",
-    link: "https://www.tinkercad.com/things/8hZtHveRXc0-pir"
+    title: "Bangalore Home Price Predictor",
+    subtitle: "Regression model with an investment risk engine",
+    description:
+      "Linear regression on 7,253 cleaned Bengaluru listings (CV R2 0.849) served through a Flask API and browser UI, with a rule-based risk engine that flags overpricing, location risk and ROI on a candidate property.",
+    tags: ["Python", "scikit-learn", "Flask", "Pandas", "Regression", "Risk engine"],
+    github: "https://github.com/Ars062/house-price-predication",
+    images: [
+      {
+        src: bangaloreHomePrice,
+        alt: "Bangalore home price predictor web application",
+        caption: "Price estimate and risk report in the web app"
+      }
+    ]
   },
+  {
+    title: "Airline Customer Experience Intelligence",
+    subtitle: "NLP and ML platform on 129k passenger reviews",
+    description:
+      "Turned 129,455 public airline reviews into service intelligence: reproducible cleaning, TF-IDF topics, recommendation and sentiment classifiers, an experience-risk indicator, plus SQL analytics, a Dataiku DSS flow and a Power BI-ready extract.",
+    tags: ["Python", "scikit-learn", "NLP / TF-IDF", "SQL", "Dataiku", "Power BI"],
+    github: "https://github.com/Ars062/Airline_Customer_Intelligence",
+    images: [
+      {
+        src: airlineRatingDist,
+        alt: "Distribution of overall airline review scores",
+        caption: "Overall score distribution"
+      },
+      {
+        src: airlineRecoByAirline,
+        alt: "Recommendation rate by airline",
+        caption: "Recommendation rate by airline"
+      },
+      {
+        src: airlineDataikuFlow,
+        alt: "Dataiku DSS pipeline flow for the airline reviews dataset",
+        caption: "Dataiku DSS pipeline flow"
+      }
+    ]
+  }
+];
+
+const events = [
   {
     title: "SIH 2024",
     link: "https://drive.google.com/file/d/1_qI_GKv-b6xBuGz59Sa3EbrJW9QWwHk_/view?usp=sharing"
@@ -41,7 +96,10 @@ const works = [
   {
     title: "ICDMAI Hackathon 2024",
     link: "https://drive.google.com/file/d/1iWVXtWh8f45Wsm7EjwuaXLDElIK1QUt-/view?usp=sharing"
-  },
+  }
+];
+
+const certifications = [
   {
     title: "Certificate: Python",
     link: "https://drive.google.com/file/d/1iTnlHkLWSiPUrHIgXhwk04WJ03nsgtwH/view?usp=sharing"
@@ -201,16 +259,58 @@ function HomePage() {
 
         <section className="section section-work" id="work">
           <h2>My Work</h2>
-          <ul className="work-list">
-            {works.map((work) => (
-              <li key={work.title}>
-                {work.link ? (
-                  <a href={work.link} target="_blank" rel="noreferrer">
-                    {work.title}
+
+          <div className="project-grid">
+            {projects.map((project) => (
+              <article className="project-card" key={project.title}>
+                <div className="project-gallery">
+                  {project.images.map((image) => (
+                    <figure className="project-shot" key={image.src}>
+                      <img src={image.src} alt={image.alt} loading="lazy" />
+                      <figcaption>{image.caption}</figcaption>
+                    </figure>
+                  ))}
+                </div>
+                <div className="project-body">
+                  <h3>{project.title}</h3>
+                  <p className="project-subtitle">{project.subtitle}</p>
+                  <p className="project-desc">{project.description}</p>
+                  <div className="project-tags">
+                    {project.tags.map((tag) => (
+                      <span className="tag-chip" key={tag}>{tag}</span>
+                    ))}
+                  </div>
+                  <a
+                    className="project-link"
+                    href={project.github}
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    <ion-icon name="logo-github"></ion-icon> View on GitHub
                   </a>
-                ) : (
-                  <span>{work.title}</span>
-                )}
+                </div>
+              </article>
+            ))}
+          </div>
+
+          <h3 className="work-subheading">Hackathons</h3>
+          <ul className="work-list">
+            {events.map((event) => (
+              <li key={event.title}>
+                <a href={event.link} target="_blank" rel="noreferrer">
+                  {event.title}
+                </a>
+              </li>
+            ))}
+          </ul>
+
+          <h3 className="work-subheading">Certifications</h3>
+          <ul className="work-list">
+            {certifications.map((certificate) => (
+              <li key={certificate.title}>
+                <a href={certificate.link} target="_blank" rel="noreferrer">
+                  {certificate.title}
+                </a>
               </li>
             ))}
           </ul>
