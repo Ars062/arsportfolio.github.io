@@ -1,9 +1,13 @@
+import { useState } from "react";
 import profilePic from "../../myphoto.jpeg";
+import CaseStudy from "../components/CaseStudy";
 import vendorchatDashboard from "../assets/projects/vendorchat-dashboard.png";
 import bangaloreHomePrice from "../assets/projects/bangalore-home-price-1.png";
+import airlineDashboardOne from "../assets/projects/airline-dashboard-1.png";
+import airlineDashboardTwo from "../assets/projects/airline-dashboard-2.png";
+import airlineDataikuPipeline from "../assets/projects/airline-dataiku-pipeline.png";
 import airlineRatingDist from "../assets/projects/airline-rating-dist.png";
 import airlineRecoByAirline from "../assets/projects/airline-reco-by-airline.png";
-import airlineDataikuFlow from "../assets/projects/airline-dataiku-flow.png";
 
 const skillLogos = {
   python: "https://cdn.simpleicons.org/python",
@@ -29,6 +33,179 @@ const skills = [
   { name: "Data visualization" },
   { name: "Docker", icon: skillLogos.docker }
 ];
+
+const airlineCaseStudy = {
+  note:
+    "Portfolio project built on public airline review data. It is not an internal Emirates system and does not represent or use any airline proprietary analysis.",
+  overview: [
+    "An end-to-end customer analytics solution built in Dataiku DSS that turns large-scale airline review data into actionable customer and business insight. It covers data cleaning and preparation, feature engineering, multilingual NLP sentiment analysis with BERT, binary classification through Dataiku AutoML, LightGBM model selection and evaluation, full-dataset scoring, and airline-level, cabin-level and sentiment KPI analytics surfaced on an interactive dashboard.",
+    "The objective is to show how structured service ratings and unstructured written reviews can be turned into a practical customer-experience intelligence workflow that connects descriptive analytics, NLP and predictive modeling."
+  ],
+  facts: [
+    { value: "129,455", label: "customer reviews" },
+    { value: "117.5 MB", label: "raw source data" },
+    { value: "40+", label: "engineered features" },
+    { value: "20,088", label: "held-out test rows" },
+    { value: "128,631", label: "scored records" },
+    { value: "1,388", label: "airline-sentiment groups" }
+  ],
+  flowImage: {
+    src: airlineDataikuPipeline,
+    alt: "Dataiku pipeline flow for the airline customer intelligence project",
+    caption: "Pipeline architecture - preparation, NLP, scoring, KPIs and dashboard kept as separate stages"
+  },
+  lineage: [
+    "airline_reviews_raw",
+    "airline_reviews_clean",
+    "airline_reviews_features",
+    "airline_reviews_nlp_input",
+    "airline_reviews_nlp",
+    "airline_reviews_sentiment",
+    "airline_reviews_ml_ready",
+    "airline_reviews_scoring_input",
+    "airline_reviews_scored",
+    "airline_reviews_kpi_base",
+    "Business KPI datasets",
+    "Dashboard"
+  ],
+  lineageNote:
+    "Preparation, machine learning, scoring and business analytics are kept as separate datasets rather than mixed into one transformation, so each stage stays testable and reusable.",
+  featuresIntro:
+    "Beyond the original 22 columns, the pipeline engineered customer-experience features that carry the analytical and modelling signal:",
+  features: [
+    {
+      name: "OverallScore",
+      note: "the customer's overall rating and the single strongest predictor of recommendation behaviour."
+    },
+    {
+      name: "AverageServiceRating",
+      note: "aggregated service-rating measure covering seat, staff, food, ground service, entertainment and Wi-Fi."
+    },
+    {
+      name: "ValueRating",
+      note: "captures the customer's perception of value for money."
+    },
+    {
+      name: "RatingGap",
+      note: "relationship between overall and component-level ratings, exposing cases where detailed service scores disagree with the headline rating."
+    },
+    {
+      name: "Review-derived features",
+      note: "review length, word count, title availability, publication year and country availability indicators, all evaluated inside the ML workflow."
+    }
+  ],
+  nlp: {
+    title: "NLP sentiment analysis - BERT Multilingual Uncased",
+    body:
+      "Unstructured review text was converted into structured sentiment using BERT Multilingual Uncased through the Dataiku LLM Mesh workflow. The NLP stage produced model-derived prediction and prediction_score fields, which were folded into the analytical and machine-learning datasets and mapped to a business-level Sentiment field of Positive, Neutral or Negative.",
+    note:
+      "Long reviews were truncated through a dedicated NLP input field so inference stayed inside model token limits and behaved consistently across the whole dataset."
+  },
+  mlIntro:
+    "Dataiku AutoML was run as a binary classification task with 79,912 training records, 20,088 test records, 44 of 51 available features selected and class weighting enabled. The recommendation target RecommendedFlag was derived from the source field as yes = 1 and no = 0, giving 6,086 negatives (60.9%) and 3,914 positives (39.1%).",
+  models: [
+    { name: "Random Forest", roc: "0.994", accuracy: "0.964", precision: "0.960", recall: "0.953", f1: "0.956" },
+    { name: "Logistic Regression", roc: "0.994", accuracy: "0.963", precision: "0.954", recall: "0.959", f1: "0.956" },
+    { name: "LightGBM", roc: "0.994", accuracy: "0.964", precision: "0.958", recall: "0.957", f1: "0.957", selected: true }
+  ],
+  selectionNote:
+    "LightGBM was selected for the highest F1 score while matching the best ROC AUC and accuracy. The three models are close together, so this is a marginal selection rather than a dramatic superiority.",
+  finalModel: {
+    name: "LightGBM",
+    config:
+      "Gradient-boosted decision trees with roughly 37 estimators, 37 leaves, a learning rate near 0.106 and GBDT boosting, selected from a hyperparameter search across 24 configurations.",
+    metrics: [
+      { value: "0.994", label: "ROC AUC" },
+      { value: "0.964", label: "Accuracy" },
+      { value: "0.958", label: "Precision" },
+      { value: "0.957", label: "Recall" },
+      { value: "0.957", label: "F1 score" },
+      { value: "0.992", label: "Average precision" }
+    ],
+    note:
+      "ROC AUC of 0.994 measures ranking quality, not 99.4% accuracy. Accuracy measures classification correctness at a chosen threshold, which is why the threshold is reported separately."
+  },
+  thresholdIntro:
+    "The default threshold was evaluated against the F1-optimal threshold of approximately 0.550, which was retained because it gave the best F1 on the held-out test set:",
+  matrix: {
+    actual0: ["11,310", "351"],
+    actual1: ["365", "8,062"]
+  },
+  importance: [
+    "OverallScore",
+    "AverageServiceRating",
+    "ValueRating",
+    "Sentiment",
+    "RatingGap",
+    "prediction"
+  ],
+  importanceNote:
+    "Overall experience plus service and value ratings dominate, which reads as: recommendation behaviour is strongly associated with the broader experience reflected in ratings and sentiment-derived signals. Feature importance is model contribution, not causal impact.",
+  scoring:
+    "LightGBM was deployed as the saved Dataiku model Predict RecommendedFlag (binary). A dedicated scoring-input dataset was created to prevent target leakage by removing RecommendedFlag and Recommended while keeping every predictive feature, then the full dataset was scored to produce airline_reviews_scored - 128,631 records and 51 columns carrying proba_0, proba_1 and the model prediction. A KPI base dataset was built from that output, and three aggregation datasets feed the dashboard.",
+  kpis: [
+    {
+      name: "kpi_airline_performance",
+      groupBy: "AirlineName",
+      metrics: "Average OverallScore, ValueRating, AverageServiceRating, BERT prediction_score, proba_1 and review count",
+      purpose: "High-level airline comparison - which carriers show stronger overall experience and recommendation propensity."
+    },
+    {
+      name: "kpi_airline_sentiment",
+      groupBy: "AirlineName and Sentiment",
+      metrics: "count - 1,388 records, summed rather than averaged for the stacked bar chart",
+      purpose: "Composition of Positive, Neutral and Negative sentiment per airline."
+    },
+    {
+      name: "kpi_airline_cabin_performance",
+      groupBy: "CabinType and AirlineName",
+      metrics: "Average OverallScore, ValueRating, AverageServiceRating and review count - 1,297 records",
+      purpose: "Experience examined at the intersection of airline and cabin segment."
+    }
+  ],
+  gallery: [
+    {
+      src: airlineRatingDist,
+      alt: "Distribution of overall airline review scores",
+      caption: "Overall score distribution across the review population"
+    },
+    {
+      src: airlineRecoByAirline,
+      alt: "Recommendation rate by airline",
+      caption: "Recommendation rate by airline"
+    }
+  ],
+  dashboardVisuals: [
+    { title: "Overall score by airline", purpose: "compare overall customer experience across carriers." },
+    { title: "Recommendation probability by airline", purpose: "compare model-derived recommendation propensity across carriers." },
+    { title: "Sentiment distribution by airline", purpose: "stacked Positive / Neutral / Negative counts per airline." },
+    { title: "Overall score by airline and cabin type", purpose: "surface segment-specific differences hidden by airline-level averages." }
+  ],
+  interpretation: [
+    {
+      level: "Descriptive",
+      question: "What happened?",
+      body: "Overall, service and value ratings, review volumes and sentiment distributions across airlines and cabins."
+    },
+    {
+      level: "Predictive",
+      question: "What is likely to happen?",
+      body: "The LightGBM model estimates recommendation propensity from structured customer-experience features plus NLP-derived sentiment signals."
+    },
+    {
+      level: "Diagnostic",
+      question: "Where are the differences?",
+      body: "Cabin-level and sentiment-level KPIs let an analyst localise the gap to a carrier, a cabin segment or a sentiment category."
+    }
+  ],
+  limitations: [
+    "Observational data - the analysis finds associations, not causal relationships.",
+    "Historical review data from a self-selected reviewer population, which skews polarised and may not reflect current behaviour.",
+    "NLP limitations - BERT predictions are sensitive to very long reviews, context, sarcasm, mixed sentiment and domain-specific language.",
+    "Very high test metrics should be validated on genuinely future or external data before any production use.",
+    "The model predicts recommendation behaviour; it does not show that changing a feature will cause a recommendation."
+  ]
+};
 
 const projects = [
   {
@@ -62,29 +239,25 @@ const projects = [
     ]
   },
   {
-    title: "Airline Customer Experience Intelligence",
-    subtitle: "NLP and ML platform on 129k passenger reviews",
+    title: "Airline Customer Intelligence",
+    subtitle: "End-to-end customer analytics, BERT sentiment and recommendation prediction",
     description:
-      "Turned 129,455 public airline reviews into service intelligence: reproducible cleaning, TF-IDF topics, recommendation and sentiment classifiers, an experience-risk indicator, plus SQL analytics, a Dataiku DSS flow and a Power BI-ready extract.",
-    tags: ["Python", "scikit-learn", "NLP / TF-IDF", "SQL", "Dataiku", "Power BI"],
+      "End-to-end Dataiku DSS solution over 129K+ public airline reviews: multilingual BERT sentiment, AutoML with LightGBM recommendation prediction, full-dataset scoring and airline, cabin and sentiment KPI dashboards.",
+    tags: ["Dataiku DSS", "BERT", "LightGBM", "Python", "SQL", "AutoML", "Dashboards"],
     github: "https://github.com/Ars062/Airline_Customer_Intelligence",
     images: [
       {
-        src: airlineRatingDist,
-        alt: "Distribution of overall airline review scores",
-        caption: "Overall score distribution"
+        src: airlineDashboardOne,
+        alt: "Airline customer intelligence dashboard",
+        caption: "Overall customer score by airline"
       },
       {
-        src: airlineRecoByAirline,
-        alt: "Recommendation rate by airline",
-        caption: "Recommendation rate by airline"
-      },
-      {
-        src: airlineDataikuFlow,
-        alt: "Dataiku DSS pipeline flow for the airline reviews dataset",
-        caption: "Dataiku DSS pipeline flow"
+        src: airlineDashboardTwo,
+        alt: "Sentiment distribution dashboard by airline",
+        caption: "Sentiment distribution by airline"
       }
-    ]
+    ],
+    caseStudy: airlineCaseStudy
   }
 ];
 
@@ -124,6 +297,12 @@ function scrollTo(id) {
 }
 
 function HomePage() {
+  const [openCase, setOpenCase] = useState(null);
+
+  const toggleCase = (title) => {
+    setOpenCase((current) => (current === title ? null : title));
+  };
+
   const handleSubmit = async (event) => {
     event.preventDefault();
 
@@ -288,7 +467,21 @@ function HomePage() {
                   >
                     <ion-icon name="logo-github"></ion-icon> View on GitHub
                   </a>
+                  {project.caseStudy && (
+                    <button
+                      type="button"
+                      className="project-toggle"
+                      onClick={() => toggleCase(project.title)}
+                      aria-expanded={openCase === project.title}
+                    >
+                      <ion-icon name={openCase === project.title ? "chevron-up-outline" : "chevron-down-outline"}></ion-icon>
+                      {openCase === project.title ? "Hide case study" : "Read case study"}
+                    </button>
+                  )}
                 </div>
+                {project.caseStudy && openCase === project.title && (
+                  <CaseStudy study={project.caseStudy} />
+                )}
               </article>
             ))}
           </div>

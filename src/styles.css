@@ -492,6 +492,350 @@ h2::after {
   font-size: 1rem;
 }
 
+.project-toggle {
+  margin-top: 0.6rem;
+  background: transparent;
+  color: #6a1b9a;
+  border: 1px solid #e0c4ea;
+  padding: 0.5rem 1.1rem;
+}
+
+.project-toggle:hover {
+  background: #f9f2fb;
+  color: #6a1b9a;
+}
+
+/* ===== Project case study ===== */
+
+.case-study {
+  border-top: 1px solid rgba(0, 0, 0, 0.07);
+  padding: 1.1rem 1.1rem 1.3rem;
+  display: grid;
+  gap: 1.1rem;
+  animation: fade-up 400ms ease;
+}
+
+.case-study p {
+  margin: 0 0 0.6rem;
+  font-size: 0.88rem;
+  line-height: 1.65;
+  color: var(--text-body);
+}
+
+.case-note {
+  background: #f9f2fb;
+  border-left: 3px solid #9c27b0;
+  border-radius: 0 8px 8px 0;
+  padding: 0.55rem 0.75rem;
+  color: var(--text-muted);
+  font-size: 0.82rem !important;
+}
+
+.case-block h4 {
+  margin: 0 0 0.5rem;
+  font-size: 0.95rem;
+  color: var(--text-heading);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.case-block h5 {
+  margin: 0.9rem 0 0.35rem;
+  font-size: 0.88rem;
+  color: #6a1b9a;
+}
+
+.fact-grid {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+  gap: 0.6rem;
+}
+
+.fact {
+  background: #fafafa;
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  border-radius: 10px;
+  padding: 0.55rem 0.7rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+}
+
+.fact-value {
+  font-weight: 800;
+  font-size: 1rem;
+  color: #6a1b9a;
+}
+
+.fact-label {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+}
+
+.lineage {
+  list-style: none;
+  margin: 0 0 0.6rem;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.3rem 0.5rem;
+  counter-reset: lineage;
+}
+
+.lineage li {
+  counter-increment: lineage;
+  background: #fafafa;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  border-radius: 8px;
+  padding: 0.2rem 0.5rem;
+  font-size: 0.74rem;
+  font-family: "Consolas", "Courier New", monospace;
+  color: var(--text-body);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.lineage li::after {
+  content: "\2192";
+  color: #9c27b0;
+  font-size: 0.8rem;
+}
+
+.lineage li:last-child::after {
+  content: "";
+}
+
+.case-shot {
+  margin: 0 0 0.7rem;
+  border-radius: 10px;
+  overflow: hidden;
+  border: 1px solid rgba(0, 0, 0, 0.07);
+  background: #fff;
+}
+
+.case-shot img {
+  display: block;
+  width: 100%;
+  object-fit: contain;
+  background: #fff;
+}
+
+.case-gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 0.6rem;
+  margin-bottom: 0.7rem;
+}
+
+.case-gallery .case-shot {
+  margin: 0;
+}
+
+.case-gallery .case-shot img {
+  aspect-ratio: 16 / 10;
+}
+
+.case-shot figcaption {
+  padding: 0.35rem 0.6rem;
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  background: #fafafa;
+}
+
+.feature-list,
+.case-list {
+  list-style: none;
+  margin: 0 0 0.6rem;
+  padding: 0;
+  display: grid;
+  gap: 0.4rem;
+}
+
+.feature-list li {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.15rem 0.45rem;
+  font-size: 0.85rem;
+  line-height: 1.5;
+  padding: 0.4rem 0.6rem;
+  background: #fafafa;
+  border-radius: 8px;
+}
+
+.feature-list li strong {
+  color: var(--text-heading);
+  font-family: "Consolas", "Courier New", monospace;
+  font-size: 0.8rem;
+}
+
+.feature-list li span {
+  color: var(--text-muted);
+}
+
+.case-list {
+  list-style: disc;
+  padding-left: 1.1rem;
+}
+
+.case-list li {
+  font-size: 0.85rem;
+  line-height: 1.55;
+  color: var(--text-body);
+}
+
+.metric-grid {
+  list-style: none;
+  margin: 0 0 0.7rem;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(110px, 1fr));
+  gap: 0.5rem;
+}
+
+.metric {
+  background: linear-gradient(135deg, #9c27b0, #673ab7);
+  border-radius: 10px;
+  padding: 0.55rem 0.5rem;
+  text-align: center;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  gap: 0.1rem;
+}
+
+.metric-value {
+  font-weight: 800;
+  font-size: 1.05rem;
+}
+
+.metric-label {
+  font-size: 0.72rem;
+  opacity: 0.9;
+}
+
+.case-table-wrap {
+  overflow-x: auto;
+  margin: 0 0 0.6rem;
+}
+
+.case-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.84rem;
+}
+
+.case-table th,
+.case-table td {
+  border: 1px solid #e0c4ea;
+  padding: 0.35rem 0.6rem;
+  text-align: right;
+  white-space: nowrap;
+}
+
+.case-table th:first-child,
+.case-table td:first-child {
+  text-align: left;
+}
+
+.case-table th {
+  background: #f9f2fb;
+  color: #6a1b9a;
+  font-weight: 700;
+}
+
+.case-table tr.is-selected td {
+  background: #f3e5f5;
+  font-weight: 700;
+}
+
+.feature-rank {
+  margin: 0 0 0.6rem;
+  padding-left: 1.4rem;
+  display: grid;
+  gap: 0.2rem;
+}
+
+.feature-rank li {
+  font-family: "Consolas", "Courier New", monospace;
+  font-size: 0.83rem;
+  color: var(--text-body);
+}
+
+.kpi-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 0.6rem;
+}
+
+.kpi-card {
+  background: #fafafa;
+  border: 1px solid rgba(0, 0, 0, 0.07);
+  border-radius: 10px;
+  padding: 0.6rem 0.7rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.kpi-name {
+  font-family: "Consolas", "Courier New", monospace;
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: #6a1b9a;
+}
+
+.kpi-group,
+.kpi-metrics,
+.kpi-purpose {
+  font-size: 0.78rem;
+  line-height: 1.45;
+  color: var(--text-muted);
+}
+
+.kpi-purpose {
+  color: var(--text-body);
+}
+
+.interp-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 0.6rem;
+}
+
+.interp-card {
+  background: #fff;
+  border: 1px solid #e0c4ea;
+  border-radius: 10px;
+  padding: 0.6rem 0.7rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.interp-level {
+  font-size: 0.72rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #9c27b0;
+}
+
+.interp-question {
+  font-weight: 700;
+  font-size: 0.87rem;
+  color: var(--text-heading);
+}
+
+.interp-body {
+  font-size: 0.8rem;
+  line-height: 1.5;
+  color: var(--text-muted);
+}
+
 .work-list {
   margin: 0;
   padding-left: 1.15rem;
