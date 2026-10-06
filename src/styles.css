@@ -468,11 +468,17 @@ h2::after {
   font-weight: 600;
 }
 
+.project-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: auto;
+}
+
 .project-link {
   display: inline-flex;
   align-items: center;
   gap: 0.4rem;
-  margin-top: auto;
   text-decoration: none;
   background: var(--accent);
   color: #fff;
@@ -486,6 +492,16 @@ h2::after {
 .project-link:hover {
   background: var(--accent-hover);
   transform: translateY(-2px);
+}
+
+.project-link-demo {
+  background: #fff;
+  color: #6a1b9a;
+  border: 1px solid #e0c4ea;
+}
+
+.project-link-demo:hover {
+  background: #f9f2fb;
 }
 
 .project-link ion-icon {
