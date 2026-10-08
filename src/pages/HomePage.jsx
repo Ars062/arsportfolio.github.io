@@ -269,7 +269,7 @@ const aiTutorCaseStudy = {
     "Entirely my own project - designed, built and operated by me. Scope: the AI_TUTOR repository, branch musetalk (voice + MuseTalk avatar), on top of the multimodal base branch.",
   demo: {
     title: "Demo",
-    src: "https://drive.google.com/file/d/12pGAufd9-9NH9LOzVIzQ3PdseM4OdhXK/preview",
+    src: "https://drive.google.com/file/d/1AiXMoh9QQso1103kstF6THqbEEcF8G3V/preview",
     caption: "Walkthrough of a live voice session with the lip-synced tutor."
   },
   overview: [
@@ -431,6 +431,10 @@ const projects = [
       "Linear regression on 7,253 cleaned Bengaluru listings (CV R2 0.849) served through a Flask API and browser UI, with a rule-based risk engine that flags overpricing, location risk and ROI on a candidate property.",
     tags: ["Python", "scikit-learn", "Flask", "Pandas", "Regression", "Risk engine"],
     github: "https://github.com/Ars062/Real-Estate-Prediction-Investment-Risk-Analytics",
+    demoLink: {
+      href: "https://drive.google.com/file/d/12pGAufd9-9NH9LOzVIzQ3PdseM4OdhXK/view?usp=drive_link",
+      label: "Watch demo"
+    },
     images: [
       {
         src: bangaloreHomePrice,
@@ -468,7 +472,7 @@ const projects = [
     tags: ["Pipecat", "LiveKit WebRTC", "MuseTalk", "faster-whisper", "Piper TTS", "Neo4j + FAISS", "Groq LLM", "FastAPI", "React"],
     github: "https://github.com/Ars062/AI_TUTOR",
     demoLink: {
-      href: "https://drive.google.com/file/d/12pGAufd9-9NH9LOzVIzQ3PdseM4OdhXK/view?usp=drive_link",
+      href: "https://drive.google.com/file/d/1AiXMoh9QQso1103kstF6THqbEEcF8G3V/view?usp=drive_link",
       label: "Watch demo"
     },
     images: [
