@@ -667,35 +667,6 @@ function HomePage() {
             engineering to create practical, scalable solutions — and I&rsquo;m open to relocation
             for the right opportunity.
           </p>
-          <div className="about-skills">
-            <span className="about-skills-label">Core Skills</span>
-            <div className="chip-grid">
-              {[
-                "Artificial Intelligence",
-                "Machine Learning",
-                "Deep Learning",
-                "Computer Vision",
-                "Generative AI",
-                "Large Language Models (LLMs)",
-                "RAG",
-                "NLP",
-                "Python",
-                "SQL",
-                "PyTorch",
-                "TensorFlow",
-                "LangChain",
-                "OpenCV",
-                "FastAPI",
-                "Docker",
-                "Power BI",
-                "Git",
-                "Data Analytics",
-                "AI System Deployment"
-              ].map((skillName) => (
-                <span key={skillName} className="chip">{skillName}</span>
-              ))}
-            </div>
-          </div>
         </section>
 
         <section className="section section-experience" id="experience">
