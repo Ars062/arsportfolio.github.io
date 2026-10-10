@@ -1,6 +1,8 @@
 ﻿import { useState } from "react";
 import profilePic from "../../myphoto.jpeg";
 import CaseStudy from "../components/CaseStudy";
+import SkillTopology from "../components/SkillTopology";
+import { skillTopology } from "../data/skills";
 import vendorchatDashboard from "../assets/projects/vendorchat-dashboard.png";
 import bangaloreHomePrice from "../assets/projects/bangalore-home-price-1.png";
 import airlineDashboardOne from "../assets/projects/airline-dashboard-1.png";
@@ -11,29 +13,44 @@ import airlineRecoByAirline from "../assets/projects/airline-reco-by-airline.png
 import aiTutorScreenshotOne from "../assets/projects/ai-tutor-session-1.png";
 import aiTutorScreenshotTwo from "../assets/projects/ai-tutor-session-2.png";
 
-const skillLogos = {
-  python: "https://cdn.simpleicons.org/python",
-  mysql: "https://cdn.simpleicons.org/mysql",
-  excel: "https://cdn.jsdelivr.net/npm/simple-icons@5/icons/microsoftexcel.svg",
-  scikitlearn: "https://cdn.simpleicons.org/scikitlearn",
-  opencv: "https://cdn.simpleicons.org/opencv",
-  huggingface: "https://cdn.simpleicons.org/huggingface",
-  langchain: "https://cdn.simpleicons.org/langchain",
-  docker: "https://cdn.simpleicons.org/docker"
-};
-
-const skills = [
-  { name: "Python and Python libraries", icon: skillLogos.python },
-  { name: "Machine Learning", icon: skillLogos.scikitlearn },
-  { name: "Computer Vision", icon: skillLogos.opencv },
-  { name: "Gen AI", icon: skillLogos.huggingface },
-  { name: "LLMs & RAG", icon: skillLogos.langchain },
-  { name: "SQL and MySQL", icon: skillLogos.mysql },
-  { name: "Power BI and Excel", icon: skillLogos.excel },
-  { name: "Data science" },
-  { name: "Data analytics" },
-  { name: "Data visualization" },
-  { name: "Docker", icon: skillLogos.docker }
+const experience = [
+  {
+    company: "Yukin AI",
+    url: "https://yukin.ai/",
+    icon: "rocket-outline",
+    role: "AI / ML Engineer",
+    location: "Australia · Remote",
+    date: "Nov 2025 — Present",
+    summary:
+      "Building and deploying production computer-vision, generative-AI and LLM systems on end-to-end multimodal pipelines.",
+    projects: [
+      {
+        title: "Multimodal Multi-Sport Video Analytics Engine",
+        description:
+          "Architected a production-grade engine that turns full-length match footage into structured tactical insight end-to-end — detection, multi-object tracking, identity resolution, event detection and player statistics — supporting several sports through one extensible pipeline. Optimised for real-time GPU inference and delivered to a coaching dashboard through a service API.",
+        tags: [
+          "Python",
+          "PyTorch",
+          "Computer Vision",
+          "Object Detection",
+          "Multi-Object Tracking",
+          "Segmentation",
+          "OCR",
+          "TensorRT",
+          "CUDA",
+          "Docker",
+          "FastAPI",
+          "PostgreSQL"
+        ]
+      },
+      {
+        title: "User Behaviour Analytics & Data Pipeline",
+        description:
+          "Built an analytics pipeline that unifies traffic and engagement signals, normalises and enriches them with session and geo context, and surfaces behavioural trends and anomalies through internal data services and dashboards.",
+        tags: ["Python", "FastAPI", "MongoDB", "Data Analytics", "Anomaly Detection", "Data Visualisation"]
+      }
+    ]
+  }
 ];
 
 const airlineCaseStudy = {
@@ -639,31 +656,47 @@ function HomePage() {
 
         <section className="section section-experience" id="experience">
           <h2>Experience</h2>
-          <div className="exp-block">
-            <div className="exp-company">
-              <a href="https://yukin.ai/" target="_blank" rel="noreferrer" className="company-link">
-                <ion-icon name="rocket-outline" class="company-icon"></ion-icon>
-                Yukin AI
-              </a>
+          {experience.map((job) => (
+            <div className="exp-block" key={job.company}>
+              <div className="exp-head">
+                <div className="exp-company">
+                  {job.url ? (
+                    <a href={job.url} target="_blank" rel="noreferrer" className="company-link">
+                      <ion-icon name={job.icon} class="company-icon"></ion-icon>
+                      {job.company}
+                    </a>
+                  ) : (
+                    <span className="company-link">
+                      <ion-icon name={job.icon} class="company-icon"></ion-icon>
+                      {job.company}
+                    </span>
+                  )}
+                </div>
+                <div className="exp-date">{job.date}</div>
+              </div>
+              <div className="exp-role">{job.role}</div>
+              <div className="exp-location">{job.location}</div>
+              <p className="exp-summary">{job.summary}</p>
+              <div className="exp-projects">
+                {job.projects.map((project) => (
+                  <article className="exp-project" key={project.title}>
+                    <h3>{project.title}</h3>
+                    <p>{project.description}</p>
+                    <div className="project-tags">
+                      {project.tags.map((tag) => (
+                        <span className="tag-chip" key={tag}>{tag}</span>
+                      ))}
+                    </div>
+                  </article>
+                ))}
+              </div>
             </div>
-            <div className="exp-role">Data Scientist and AI Engineer</div>
-            <div className="exp-location">Australia, Remote</div>
-            <div className="exp-date">Nov&rsquo;2025 &mdash; Present</div>
-          </div>
+          ))}
         </section>
 
         <section className="section section-skills" id="skills">
           <h2>Skills</h2>
-          <div className="chip-grid">
-            {skills.map((skill) => (
-              <span key={skill.name} className="chip">
-                {skill.icon && (
-                  <img src={skill.icon} alt="" className="chip-icon" loading="lazy" />
-                )}
-                {skill.name}
-              </span>
-            ))}
-          </div>
+          <SkillTopology data={skillTopology} />
         </section>
 
         <section className="section section-work" id="work">

@@ -1082,3 +1082,312 @@ button:hover {
     transform: none;
   }
 }
+
+/* ---------- Experience sub-projects ---------- */
+.exp-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.exp-summary {
+  margin: 0.55rem 0 1rem;
+  color: var(--text-body);
+  line-height: 1.6;
+}
+
+.exp-projects {
+  display: flex;
+  flex-direction: column;
+  gap: 0.9rem;
+  margin-top: 0.3rem;
+}
+
+.exp-project {
+  background: rgba(255, 255, 255, 0.66);
+  border: 1px solid rgba(21, 101, 192, 0.14);
+  border-left: 4px solid #1565c0;
+  border-radius: 14px;
+  padding: 1rem 1.1rem;
+  box-shadow: 0 6px 18px rgba(21, 101, 192, 0.06);
+}
+
+.exp-project h3 {
+  margin: 0 0 0.45rem;
+  font-size: 1rem;
+  color: var(--text-heading);
+}
+
+.exp-project p {
+  margin: 0 0 0.8rem;
+  font-size: 0.9rem;
+  line-height: 1.6;
+  color: var(--text-body);
+}
+
+.exp-project .project-tags {
+  margin-bottom: 0;
+}
+
+/* ---------- Skill Topology ---------- */
+.topo {
+  margin-top: 0.4rem;
+}
+
+.topo-head {
+  display: flex;
+  flex-direction: column;
+  gap: 0.9rem;
+  margin-bottom: 1.1rem;
+}
+
+.topo-title {
+  margin: 0;
+  font-size: 1.05rem;
+  color: var(--text-heading);
+}
+
+.topo-subtitle {
+  margin: 0.2rem 0 0;
+  font-size: 0.9rem;
+  color: var(--text-muted);
+}
+
+.topo-filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+}
+
+.topo-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  border: 1px solid rgba(2, 6, 23, 0.12);
+  background: #ffffff;
+  color: #334155;
+  border-radius: 999px;
+  padding: 0.35rem 0.8rem;
+  font-size: 0.78rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s, border-color 0.2s;
+}
+
+.topo-pill:hover {
+  border-color: var(--c, #64748b);
+}
+
+.topo-pill.is-active {
+  background: #0f172a;
+  border-color: #0f172a;
+  color: #ffffff;
+}
+
+.topo-pill-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.topo-canvas {
+  position: relative;
+  width: 100%;
+  height: 620px;
+  background-color: #020617;
+  background-image: radial-gradient(rgba(148, 163, 184, 0.18) 1px, transparent 1px);
+  background-size: 22px 22px;
+  border-radius: 20px;
+  overflow: hidden;
+  touch-action: none;
+  user-select: none;
+  -webkit-user-select: none;
+  box-shadow: inset 0 0 140px rgba(56, 189, 248, 0.07), 0 18px 42px rgba(2, 6, 23, 0.28);
+}
+
+.topo-canvas::before,
+.topo-canvas::after {
+  content: "";
+  position: absolute;
+  z-index: 0;
+  pointer-events: none;
+  filter: blur(6px);
+}
+
+.topo-canvas::before {
+  width: 440px;
+  height: 440px;
+  left: -130px;
+  top: -140px;
+  background: radial-gradient(circle, rgba(56, 189, 248, 0.18), transparent 70%);
+}
+
+.topo-canvas::after {
+  width: 460px;
+  height: 460px;
+  right: -150px;
+  bottom: -170px;
+  background: radial-gradient(circle, rgba(244, 114, 182, 0.15), transparent 70%);
+}
+
+.topo-links {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.topo-node {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 0;
+  height: 0;
+  will-change: transform;
+}
+
+.topo-dot {
+  position: absolute;
+  left: 0;
+  top: 0;
+  padding: 0;
+  border: none;
+  border-radius: 50%;
+  background: var(--c, #94a3b8);
+  cursor: grab;
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--c, #94a3b8) 24%, transparent),
+    0 0 16px color-mix(in srgb, var(--c, #94a3b8) 60%, transparent);
+}
+
+.topo-dot.is-dragging {
+  cursor: grabbing;
+}
+
+.topo-dot:focus-visible {
+  outline: 2px solid #ffffff;
+  outline-offset: 3px;
+}
+
+.topo-label {
+  position: absolute;
+  left: 0;
+  top: 0;
+  transform: translate(-50%, 12px);
+  white-space: nowrap;
+  font-size: 10.5px;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  color: #e2e8f0;
+  pointer-events: none;
+  text-shadow: 0 1px 5px rgba(2, 6, 23, 0.95);
+  transition: opacity 0.2s ease;
+}
+
+.topo-panel {
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: 100%;
+  width: min(320px, 84%);
+  z-index: 20;
+  padding: 1.6rem 1.4rem;
+  color: #e2e8f0;
+  background: rgba(15, 23, 42, 0.94);
+  border-left: 1px solid rgba(148, 163, 184, 0.18);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  overflow-y: auto;
+  box-shadow: -22px 0 60px rgba(2, 6, 23, 0.6);
+}
+
+.topo-panel-close {
+  position: absolute;
+  top: 0.85rem;
+  right: 0.9rem;
+  display: grid;
+  place-items: center;
+  background: transparent;
+  border: none;
+  color: #94a3b8;
+  font-size: 1.4rem;
+  cursor: pointer;
+}
+
+.topo-panel-close:hover {
+  color: #ffffff;
+}
+
+.topo-panel-cat {
+  display: inline-block;
+  font-size: 0.68rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--c, #94a3b8);
+}
+
+.topo-panel h4 {
+  margin: 0.5rem 0 0.6rem;
+  font-size: 1.3rem;
+  color: #f8fafc;
+}
+
+.topo-panel p {
+  margin: 0 0 1.2rem;
+  font-size: 0.9rem;
+  line-height: 1.6;
+  color: #cbd5e1;
+}
+
+.topo-panel-label {
+  margin-bottom: 0.6rem;
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  color: #64748b;
+}
+
+.topo-panel-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+
+.topo-panel-chip {
+  border: 1px solid color-mix(in srgb, var(--c, #94a3b8) 45%, transparent);
+  background: color-mix(in srgb, var(--c, #94a3b8) 12%, transparent);
+  color: #e2e8f0;
+  border-radius: 999px;
+  padding: 0.28rem 0.62rem;
+  font-size: 0.74rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.18s, border-color 0.18s;
+}
+
+.topo-panel-chip:hover {
+  background: color-mix(in srgb, var(--c, #94a3b8) 28%, transparent);
+  border-color: var(--c, #94a3b8);
+}
+
+.topo-hint {
+  margin: 0.7rem 0 0;
+  text-align: center;
+  font-size: 0.78rem;
+  color: var(--text-muted);
+}
+
+@media (max-width: 640px) {
+  .topo-canvas {
+    height: 500px;
+    border-radius: 16px;
+  }
+
+  .topo-label {
+    font-size: 9px;
+  }
+}
