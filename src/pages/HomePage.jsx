@@ -18,7 +18,7 @@ const experience = [
     company: "Yukin AI",
     url: "https://yukin.ai/",
     icon: "rocket-outline",
-    role: "AI / ML Engineer",
+    role: "Data Scientist and AI Engineer",
     location: "Australia · Remote",
     date: "Nov 2025 — Present",
     summary:
