@@ -45,6 +45,7 @@ export const skillTopology = {
     { id: "statistics", name: "Statistical Analysis", cat: "data", val: 2, description: "Hypothesis-driven, quantitative reasoning." },
     { id: "anomaly", name: "Anomaly Detection", cat: "data", val: 2, description: "Flagging unusual behaviour and outliers." },
     { id: "predictive", name: "Predictive Modeling", cat: "data", val: 2, description: "Regression, classification and risk scoring." },
+    { id: "dataiku", name: "Dataiku", cat: "data", val: 1, description: "Visual platform for end-to-end data & ML pipelines." },
 
     { id: "docker", name: "Docker", cat: "mlops", val: 3, description: "Containerised, reproducible deployments." },
     { id: "cuda", name: "CUDA", cat: "mlops", val: 3, description: "GPU streams, batching and memory control." },
@@ -118,6 +119,9 @@ export const skillTopology = {
     { source: "pandas", target: "numpy" },
     { source: "pandas", target: "statistics" },
     { source: "pandas", target: "powerbi" },
+    { source: "dataiku", target: "pandas" },
+    { source: "dataiku", target: "predictive" },
+    { source: "dataiku", target: "powerbi" },
     { source: "powerbi", target: "excel" },
     { source: "statistics", target: "anomaly" },
     { source: "statistics", target: "predictive" },

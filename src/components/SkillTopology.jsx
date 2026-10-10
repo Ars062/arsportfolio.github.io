@@ -61,9 +61,11 @@ export default function SkillTopology({ data }) {
       const ring = count > 1 ? 30 + count * 8 : 0;
       members.forEach((n, ni) => {
         const th = count > 1 ? (ni / count) * Math.PI * 2 + ci * 0.7 : 0;
+        const x = ccx + Math.cos(th) * ring;
+        const y = ccy + Math.sin(th) * ring * 0.82;
         pos[n.id] = {
-          x: ccx + Math.cos(th) * ring,
-          y: ccy + Math.sin(th) * ring * 0.82
+          x: Math.min(Math.max(x, 18), w - 18),
+          y: Math.min(Math.max(y, 14), h - 26)
         };
       });
     });

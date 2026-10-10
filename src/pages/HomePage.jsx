@@ -644,26 +644,58 @@ function HomePage() {
         <section className="section section-about" id="about">
           <h2>Who am I?</h2>
           <p>
-            I'm Abdur Rahaman Siddique — an AI Engineer and Data Scientist from Kolkata, India, and a
-            final-year Electronics &amp; Telecommunication Engineering (ETCE) student at Jadavpur University,
-            graduating in 2026. I love turning research into systems that actually ship.
+            AI Engineer with hands-on experience in Machine Learning, Generative AI, Computer Vision,
+            Large Language Models (LLMs), and Data Analytics — with around a year of industry experience
+            designing and developing end-to-end AI solutions, including multimodal pipelines,
+            Retrieval-Augmented Generation (RAG) systems, AI agents, and real-time video analytics.
           </p>
           <p>
-            Right now I work remotely with Yukin AI (Australia), building production-grade multimodal pipelines —
-            real-time video analytics, RAG-powered assistants and LLM applications — and deploying them
-            GPU-accelerated with Docker, CUDA/TensorRT, FastAPI and RunPod. That work sits on a strong foundation
-            in Deep Learning, Computer Vision, Generative AI and LLM-based systems, with hands-on experience
-            across end-to-end ASR, RAG and video analytics workflows.
+            Currently working remotely with an Australia-based AI company, contributing to the
+            development of scalable, production-ready AI systems. My work spans the complete AI
+            lifecycle — from data annotation and model training to GPU-accelerated inference, backend
+            integration, cloud deployment, and performance optimization.
           </p>
           <p>
-            Beyond the code, I've led large university events — managing teams, budgets and sponsorships for
-            2,000+ attendees — and competed in national hackathons like SIH 2024. I care about clean architecture,
-            measurable impact, and products that feel effortless to use.
+            I have built AI applications using Python, SQL, PyTorch, TensorFlow, LangChain, OpenCV,
+            FastAPI, Docker, and RunPod, with experience in deploying intelligent systems powered by
+            LLMs, Computer Vision, and modern AI frameworks. My projects include multimodal sports
+            video analytics, LLM-to-SQL agents, RAG-based question-answering systems, AI tutoring
+            platforms, user behavior analytics, and interactive data visualization dashboards.
           </p>
           <p>
-            I'm open to AI Engineer, Computer Vision Engineer, Data Scientist and Data Analyst roles — and happy
-            to relocate across the Gulf/GCC.
+            I enjoy solving complex real-world problems by combining AI, data, and software
+            engineering to create practical, scalable solutions — and I&rsquo;m open to relocation
+            for the right opportunity.
           </p>
+          <div className="about-skills">
+            <span className="about-skills-label">Core Skills</span>
+            <div className="chip-grid">
+              {[
+                "Artificial Intelligence",
+                "Machine Learning",
+                "Deep Learning",
+                "Computer Vision",
+                "Generative AI",
+                "Large Language Models (LLMs)",
+                "RAG",
+                "NLP",
+                "Python",
+                "SQL",
+                "PyTorch",
+                "TensorFlow",
+                "LangChain",
+                "OpenCV",
+                "FastAPI",
+                "Docker",
+                "Power BI",
+                "Git",
+                "Data Analytics",
+                "AI System Deployment"
+              ].map((skillName) => (
+                <span key={skillName} className="chip">{skillName}</span>
+              ))}
+            </div>
+          </div>
         </section>
 
         <section className="section section-experience" id="experience">
