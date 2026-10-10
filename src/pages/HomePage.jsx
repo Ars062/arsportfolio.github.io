@@ -642,15 +642,27 @@ function HomePage() {
 
       <main>
         <section className="section section-about" id="about">
-          <h2>About</h2>
+          <h2>Who am I?</h2>
           <p>
-            AI Engineer with a strong foundation in Data Science and Computer Vision, specializing in Generative AI,
-            and LLM-based systems. Hands-on experience building end-to-end
-            multimodal pipelines involving ASR, RAG, and real-time video analytics.
+            I'm Abdur Rahaman Siddique — an AI Engineer and Data Scientist from Kolkata, India, and a
+            final-year Electronics &amp; Telecommunication Engineering (ETCE) student at Jadavpur University,
+            graduating in 2026. I love turning research into systems that actually ship.
           </p>
           <p>
-            Proficient in Python and SQL, with experience in deploying GPU-accelerated AI
-            solutions using Docker and cloud platforms. Graduate from Jadavpur University.
+            Right now I work remotely with Yukin AI (Australia), building production-grade multimodal pipelines —
+            real-time video analytics, RAG-powered assistants and LLM applications — and deploying them
+            GPU-accelerated with Docker, CUDA/TensorRT, FastAPI and RunPod. That work sits on a strong foundation
+            in Deep Learning, Computer Vision, Generative AI and LLM-based systems, with hands-on experience
+            across end-to-end ASR, RAG and video analytics workflows.
+          </p>
+          <p>
+            Beyond the code, I've led large university events — managing teams, budgets and sponsorships for
+            2,000+ attendees — and competed in national hackathons like SIH 2024. I care about clean architecture,
+            measurable impact, and products that feel effortless to use.
+          </p>
+          <p>
+            I'm open to AI Engineer, Computer Vision Engineer, Data Scientist and Data Analyst roles — and happy
+            to relocate across the Gulf/GCC.
           </p>
         </section>
 
