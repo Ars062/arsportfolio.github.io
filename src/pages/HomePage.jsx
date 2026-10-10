@@ -609,6 +609,9 @@ function HomePage() {
             <a href="#work" onClick={(e) => { e.preventDefault(); scrollTo("work"); }}>Work</a>
             <a href="#blog" onClick={(e) => { e.preventDefault(); scrollTo("blog"); }}>Blog</a>
             <a href="#contact" onClick={(e) => { e.preventDefault(); scrollTo("contact"); }}>Contact</a>
+            <a className="nav-cta" href="https://calendly.com/ars062/30min" target="_blank" rel="noopener noreferrer" aria-label="Book a 1:1 call">
+              <ion-icon name="calendar-outline"></ion-icon> 1:1 Call
+            </a>
           </div>
         </nav>
 
@@ -632,9 +635,6 @@ function HomePage() {
             <p>Open to roles: AI Engineer, Computer Vision Engineer, Data Scientist, and Data Analyst.</p>
             <a className="primary-btn" href="#contact" onClick={(e) => { e.preventDefault(); scrollTo("contact"); }}>
               Hire Me
-            </a>
-            <a className="primary-btn calendly-btn" href="https://calendly.com/ars062/30min" target="_blank" rel="noopener noreferrer">
-              <ion-icon name="calendar-outline"></ion-icon> Book a 1:1 Call
             </a>
           </div>
         </div>
@@ -893,9 +893,6 @@ GroundingDINO (zero-shot) â†’ Verify 300 â†’ Train R1
             <textarea id="message" name="message" rows="5" required />
 
             <div className="button-row">
-              <a className="primary-btn calendly-btn" href="https://calendly.com/ars062/30min" target="_blank" rel="noopener noreferrer">
-                <ion-icon name="calendar-outline"></ion-icon> Book a 1:1 Call
-              </a>
               <button type="button" onClick={handleWhatsApp}>
                 <ion-icon name="logo-whatsapp"></ion-icon> WhatsApp
               </button>
