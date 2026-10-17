@@ -334,79 +334,36 @@ main {
 }
 
 .section {
-  margin-bottom: 1.5rem;
-  border-radius: 20px;
-  padding: clamp(1.4rem, 3vw, 2.2rem);
-  border: 1px solid rgba(0,0,0,0.06);
-  box-shadow: 0 4px 20px rgba(0,0,0,0.06);
-  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  margin-bottom: 2.4rem;
+  padding: 0;
 }
 
-.section:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 8px 32px rgba(0,0,0,0.1);
-}
-
-/* Zigzag section layout */
+/* Zigzag section layout - small offset, nearly centered */
 main > .section {
-  width: 85%;
+  width: 90%;
 }
 
 main > .section:nth-of-type(odd) {
-  margin-left: 0;
+  margin-left: 2%;
   margin-right: auto;
 }
 
 main > .section:nth-of-type(even) {
   margin-left: auto;
-  margin-right: 0;
+  margin-right: 2%;
 }
 
 @media (max-width: 768px) {
   main > .section {
     width: 100%;
-  }
-
-  main > .section:nth-of-type(odd),
-  main > .section:nth-of-type(even) {
     margin-left: 0;
     margin-right: 0;
   }
 }
 
-.section-about {
-  background: var(--section-about);
-  border-left: 5px solid #4caf50;
-}
-
 .section-about h2 {
   display: inline-block;
   animation: float-soft 6s ease-in-out infinite;
-}
-
-.section-experience {
-  background: var(--section-experience);
-  border-left: 5px solid #2196f3;
-}
-
-.section-skills {
-  background: var(--section-skills);
-  border-left: 5px solid #e91e63;
-}
-
-.section-work {
-  background: var(--section-work);
-  border-left: 5px solid #9c27b0;
-}
-
-.section-contact {
-  background: var(--section-contact);
-  border-left: 5px solid #ff9800;
-}
-
-.section-blog {
-  background: var(--section-blog);
-  border-left: 5px solid #00bcd4;
 }
 
 .section-blog h3 {
@@ -450,7 +407,7 @@ main > .section:nth-of-type(even) {
 
 h2 {
   margin: 0 0 0.85rem;
-  color: var(--text-heading);
+  color: #ffffff;
   font-size: clamp(1.3rem, 2.8vw, 1.8rem);
   position: relative;
   display: inline-block;
@@ -1570,4 +1527,65 @@ button:hover {
   .topo-label {
     font-size: 9px;
   }
+}
+
+/* ===== Plain sections: light text on the animated background ===== */
+main {
+  color: rgba(255, 255, 255, 0.86);
+}
+
+.section h2,
+.section-blog h3,
+.section-blog h4,
+.section-blog strong,
+.work-subheading,
+.exp-role,
+.topo-title,
+.contact-form label {
+  color: #ffffff;
+}
+
+.section-about p,
+.section-blog p,
+.section-blog li,
+.exp-summary,
+.work-list li,
+.exp-location,
+.exp-date,
+.blog-footer,
+.topo-subtitle,
+.topo-hint {
+  color: rgba(255, 255, 255, 0.82);
+}
+
+.company-link,
+.work-list a {
+  color: #9ecbff;
+}
+
+.company-link:hover,
+.work-list a:hover {
+  color: #ffffff;
+}
+
+.social-row a {
+  color: #ffffff;
+}
+
+.contact-form input,
+.contact-form textarea {
+  color: #1f2937;
+}
+
+.blog-table th,
+.blog-table td {
+  color: #14313a;
+}
+
+.submit-message[data-status="success"] {
+  color: #b9f6ca;
+}
+
+.submit-message[data-status="error"] {
+  color: #ffcdd2;
 }
