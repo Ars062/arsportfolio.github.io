@@ -246,6 +246,53 @@ h1 {
   color: #fff;
   font-weight: 300;
   font-size: clamp(1rem, 2.5vw, 1.5rem);
+  min-height: 1.5em;
+  animation: float-soft 6s ease-in-out infinite;
+}
+
+.typewriter-text {
+  background: linear-gradient(90deg, #ffd200, #ff8906);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-weight: 500;
+}
+
+.typewriter-cursor {
+  display: inline-block;
+  width: 2px;
+  height: 1.05em;
+  margin-left: 3px;
+  vertical-align: -0.15em;
+  background: #ffd200;
+  box-shadow: 0 0 8px rgba(255, 210, 0, 0.8);
+  animation: caret-blink 1s step-end infinite;
+}
+
+@keyframes caret-blink {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+}
+
+@keyframes float-soft {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-5px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .title-line {
+    animation: none;
+  }
 }
 
 .hero-right p {

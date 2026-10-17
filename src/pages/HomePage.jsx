@@ -2,6 +2,7 @@
 import profilePic from "../../myphoto.jpeg";
 import CaseStudy from "../components/CaseStudy";
 import SkillTopology from "../components/SkillTopology";
+import Typewriter from "../components/Typewriter";
 import { skillTopology } from "../data/skills";
 import vendorchatDashboard from "../assets/projects/vendorchat-dashboard.png";
 import bangaloreHomePrice from "../assets/projects/bangalore-home-price-1.png";
@@ -626,7 +627,17 @@ function HomePage() {
             <h1>
               I'm<br />
               <span className="full-name">ABDUR RAHAMAN SIDDIQUE</span><br />
-              <span className="title-line">AI Engineer / Computer Vision Engineer / Data Scientist</span>
+              <span className="title-line">
+                <Typewriter
+                  words={[
+                    "AI Engineer",
+                    "Computer Vision Engineer",
+                    "Data Scientist",
+                    "Generative AI & LLM Engineer",
+                    "Multimodal & Video Analytics"
+                  ]}
+                />
+              </span>
             </h1>
             <p>
               Based in Kolkata, India. I work on data analysis, machine learning,
