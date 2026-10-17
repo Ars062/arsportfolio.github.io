@@ -221,6 +221,8 @@ body {
   letter-spacing: 0.1em;
   font-size: 0.8rem;
   font-weight: 600;
+  display: inline-block;
+  animation: float-soft 5s ease-in-out infinite;
 }
 
 h1 {
@@ -290,7 +292,9 @@ h1 {
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .title-line {
+  .title-line,
+  .eyebrow,
+  .section-about h2 {
     animation: none;
   }
 }
@@ -346,6 +350,11 @@ main {
 .section-about {
   background: var(--section-about);
   border-left: 5px solid #4caf50;
+}
+
+.section-about h2 {
+  display: inline-block;
+  animation: float-soft 6s ease-in-out infinite;
 }
 
 .section-experience {
