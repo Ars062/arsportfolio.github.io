@@ -655,30 +655,47 @@ function HomePage() {
       <main>
         <section className="section section-about" id="about">
           <h2>Who am I?</h2>
-          <p>
-            AI Engineer with hands-on experience in Machine Learning, Generative AI, Computer Vision,
-            Large Language Models (LLMs), and Data Analytics — with around a year of industry experience
-            designing and developing end-to-end AI solutions, including multimodal pipelines,
-            Retrieval-Augmented Generation (RAG) systems, AI agents, and real-time video analytics.
+          <p className="about-lead">
+            An AI engineer who builds systems end to end — from raw data and model training
+            to GPU-accelerated inference, agents, and production APIs.
           </p>
           <p>
-            Currently working remotely with an Australia-based AI company, contributing to the
-            development of scalable, production-ready AI systems. My work spans the complete AI
-            lifecycle — from data annotation and model training to GPU-accelerated inference, backend
-            integration, cloud deployment, and performance optimization.
+            I&rsquo;m Abdur Rahaman Siddique, an AI Engineer with hands-on experience across Machine
+            Learning, Generative AI, Computer Vision, Large Language Models and Data Analytics. I
+            currently work remotely with an Australia-based AI company, contributing to scalable,
+            production-ready AI systems — and my work spans the complete AI lifecycle, from data
+            annotation and model training to backend integration, cloud deployment and performance
+            optimization.
           </p>
           <p>
-            I have built AI applications using Python, SQL, PyTorch, TensorFlow, LangChain, OpenCV,
-            FastAPI, Docker, and RunPod, with experience in deploying intelligent systems powered by
-            LLMs, Computer Vision, and modern AI frameworks. My projects include multimodal sports
-            video analytics, LLM-to-SQL agents, RAG-based question-answering systems, AI tutoring
-            platforms, user behavior analytics, and interactive data visualization dashboards.
+            Along the way I&rsquo;ve built multimodal sports video analytics, LLM-to-SQL agents,
+            RAG-based question-answering, AI tutoring platforms, user behavior analytics and
+            interactive dashboards — using Python, SQL, PyTorch, TensorFlow, LangChain, OpenCV,
+            FastAPI, Docker and RunPod.
           </p>
           <p>
-            I enjoy solving complex real-world problems by combining AI, data, and software
-            engineering to create practical, scalable solutions — and I&rsquo;m open to relocation
-            for the right opportunity.
+            I like problems where AI, data and software engineering have to work together for
+            real, and I keep exploring whatever is emerging next. Open to relocation for the
+            right opportunity.
           </p>
+          <ul className="about-facts">
+            <li>
+              <span className="about-fact-value">1+</span>
+              <span className="about-fact-label">year building production AI</span>
+            </li>
+            <li>
+              <span className="about-fact-value">6</span>
+              <span className="about-fact-label">flagship systems shipped</span>
+            </li>
+            <li>
+              <span className="about-fact-value">8</span>
+              <span className="about-fact-label">domains, from CV to LLM agents</span>
+            </li>
+            <li>
+              <span className="about-fact-value">10+</span>
+              <span className="about-fact-label">tools across the AI stack</span>
+            </li>
+          </ul>
         </section>
 
         <section className="section section-experience" id="experience">

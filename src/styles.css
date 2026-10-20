@@ -381,6 +381,50 @@ main {
   font-weight: 600;
 }
 
+.section-about .about-lead {
+  font-size: clamp(1.02rem, 2.2vw, 1.2rem);
+  font-weight: 700;
+  line-height: 1.55;
+  color: #ffffff;
+  margin: 0.1rem 0 1rem;
+}
+
+.section-about .about-facts {
+  list-style: none;
+  margin: 1.4rem 0 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 0.7rem;
+}
+
+.section-about .about-facts li {
+  background: rgba(255, 255, 255, 0.09);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 12px;
+  padding: 0.7rem 0.85rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+}
+
+.section-about .about-fact-value {
+  font-weight: 800;
+  font-size: 1.4rem;
+  line-height: 1.1;
+  background: linear-gradient(90deg, #f6b93b, #fcd34d);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.section-about .about-fact-label {
+  font-size: 0.78rem;
+  font-weight: 600;
+  line-height: 1.35;
+  color: rgba(255, 255, 255, 0.82);
+}
+
 .section-experience {
   background: var(--section-experience);
   border-left: 5px solid #14b8a6;
