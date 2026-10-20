@@ -245,6 +245,21 @@ h1 {
   font-size: clamp(1.3rem, 3.2vw, 2.2rem);
 }
 
+.pronoun {
+  display: inline-block;
+  margin-left: 0.6rem;
+  padding: 0.12rem 0.6rem;
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  color: #0b4a43;
+  background: rgba(255, 255, 255, 0.16);
+  border: 1px solid rgba(255, 255, 255, 0.45);
+  border-radius: 999px;
+  vertical-align: middle;
+  -webkit-text-fill-color: currentColor;
+}
+
 .title-line {
   display: inline-block;
   color: #fff;

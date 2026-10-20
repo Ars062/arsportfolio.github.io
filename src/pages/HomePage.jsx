@@ -626,7 +626,8 @@ function HomePage() {
             <p className="eyebrow">Greetings and warm regards</p>
             <h1>
               I'm<br />
-              <span className="full-name">ABDUR RAHAMAN SIDDIQUE</span><br />
+              <span className="full-name">ABDUR RAHAMAN SIDDIQUE</span>
+              <span className="pronoun">he/him</span><br />
               <span className="title-line">
                 <Typewriter
                   words={[
@@ -645,7 +646,7 @@ function HomePage() {
             </p>
             <p>Open to roles: AI Engineer, Computer Vision Engineer, Data Scientist, and Data Analyst.</p>
             <a className="primary-btn" href="#contact" onClick={(e) => { e.preventDefault(); scrollTo("contact"); }}>
-              Hire Me
+              Let's Talk
             </a>
           </div>
         </div>
