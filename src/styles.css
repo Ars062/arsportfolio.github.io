@@ -8,11 +8,11 @@
   --accent-hover: #92400e;
   --accent-glow: rgba(180, 83, 9, 0.25);
   --section-about: #dff0e6;
-  --section-experience: #d7ebe6;
-  --section-skills: #f5e7d0;
-  --section-work: #edb59c;
-  --section-blog: #d5ebe6;
-  --section-contact: #f2cd7c;
+  --section-experience: rgba(215, 235, 230, 0.82);
+  --section-skills: rgba(245, 231, 208, 0.82);
+  --section-work: rgba(237, 181, 156, 0.82);
+  --section-blog: rgba(213, 235, 230, 0.82);
+  --section-contact: rgba(242, 205, 124, 0.82);
   --chip-bg: #fffdf7;
   --chip-border: #cdd8d0;
   --page-bg: linear-gradient(-45deg, #fdeef3 0%, #f9e0ea 25%, #fdf0f5 50%, #f8e2ec 75%, #fdeef3 100%);
@@ -358,6 +358,8 @@ main {
   border: 1px solid rgba(0, 0, 0, 0.06);
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
   transition: transform 0.25s ease, box-shadow 0.25s ease;
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
 }
 
 .section:hover {
@@ -1640,5 +1642,146 @@ button:hover {
 
   .topo-label {
     font-size: 9px;
+  }
+}
+
+/* ===== 3D depth layer (experimental) ===== */
+
+.hero-3d {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.hero-3d canvas {
+  display: block;
+  width: 100% !important;
+  height: 100% !important;
+}
+
+.page-3d {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  opacity: 0.55;
+}
+
+.page-3d canvas {
+  display: block;
+  width: 100% !important;
+  height: 100% !important;
+}
+
+.page {
+  position: relative;
+  z-index: 1;
+}
+
+main {
+  position: relative;
+  z-index: 1;
+}
+
+.navbar,
+.hero-content {
+  position: relative;
+  z-index: 2;
+}
+
+main {
+  perspective: 1600px;
+}
+
+.section {
+  transform-style: preserve-3d;
+  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.04), 0 6px 14px rgba(18, 51, 43, 0.08),
+    0 22px 44px rgba(18, 51, 43, 0.12);
+  transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.35s ease;
+}
+
+.section:hover {
+  transform: translateY(-10px) rotateX(2.2deg) scale(1.006);
+  box-shadow: 0 2px 0 rgba(0, 0, 0, 0.05), 0 10px 22px rgba(18, 51, 43, 0.1),
+    0 40px 76px rgba(18, 51, 43, 0.2);
+}
+
+.section-about {
+  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.06), 0 8px 20px rgba(5, 46, 43, 0.28),
+    0 28px 56px rgba(5, 46, 43, 0.34);
+}
+
+.section-about:hover {
+  box-shadow: 0 2px 0 rgba(0, 0, 0, 0.08), 0 14px 30px rgba(5, 46, 43, 0.34),
+    0 48px 88px rgba(5, 46, 43, 0.46);
+}
+
+.hero-photo {
+  border: 4px solid rgba(255, 255, 255, 0.5);
+  box-shadow: 0 6px 0 rgba(0, 0, 0, 0.18), 0 18px 40px rgba(0, 0, 0, 0.35),
+    0 40px 80px rgba(0, 0, 0, 0.28);
+  transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.hero-photo:hover {
+  transform: translateY(-6px) rotateY(-6deg) rotateX(4deg);
+}
+
+.primary-btn,
+button {
+  box-shadow: 0 3px 0 rgba(0, 0, 0, 0.18), 0 8px 20px var(--accent-glow);
+  transform-style: preserve-3d;
+  transition: transform 0.18s ease, box-shadow 0.18s ease, background 0.3s ease;
+}
+
+.primary-btn:hover,
+button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 0 rgba(0, 0, 0, 0.2), 0 14px 28px var(--accent-glow);
+}
+
+.primary-btn:active,
+button:active {
+  transform: translateY(1px);
+  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.18), 0 4px 10px var(--accent-glow);
+}
+
+.exp-project,
+.kpi-card,
+.fact,
+.metric {
+  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.04), 0 6px 14px rgba(18, 51, 43, 0.09),
+    0 16px 30px rgba(18, 51, 43, 0.1);
+  transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.3s ease;
+}
+
+.exp-project:hover,
+.kpi-card:hover,
+.fact:hover,
+.metric:hover {
+  transform: translateY(-5px) rotateX(2deg);
+  box-shadow: 0 10px 22px rgba(18, 51, 43, 0.14), 0 26px 48px rgba(18, 51, 43, 0.18);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .section,
+  .hero-photo,
+  .primary-btn,
+  button,
+  .exp-project,
+  .kpi-card,
+  .fact,
+  .metric {
+    transition: none;
+  }
+
+  .section:hover,
+  .hero-photo:hover,
+  .exp-project:hover,
+  .kpi-card:hover,
+  .fact:hover,
+  .metric:hover {
+    transform: none;
   }
 }

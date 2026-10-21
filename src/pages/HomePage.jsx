@@ -1,6 +1,8 @@
 ﻿import { useState } from "react";
 import profilePic from "../../myphoto.jpeg";
 import CaseStudy from "../components/CaseStudy";
+import Hero3DBackground from "../components/Hero3DBackground";
+import Page3DBackground from "../components/Page3DBackground";
 import SkillTopology from "../components/SkillTopology";
 import Typewriter from "../components/Typewriter";
 import { skillTopology } from "../data/skills";
@@ -704,6 +706,7 @@ function HomePage() {
   return (
     <div className="page">
       <header className="hero" id="home">
+        <Hero3DBackground />
         <nav className="navbar">
           <a className="brand" href="#home" onClick={(e) => { e.preventDefault(); scrollTo("home"); }} aria-label="Ars home">Ars</a>
           <div className="nav-links">
@@ -754,6 +757,8 @@ function HomePage() {
           </div>
         </div>
       </header>
+
+      <Page3DBackground />
 
       <main>
         <section className="section section-about" id="about">
