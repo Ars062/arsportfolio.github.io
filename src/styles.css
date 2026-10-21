@@ -8,11 +8,11 @@
   --accent-hover: #92400e;
   --accent-glow: rgba(180, 83, 9, 0.25);
   --section-about: #dff0e6;
-  --section-experience: #d5ece6;
-  --section-skills: #e3f2ee;
-  --section-work: #cfe9e1;
+  --section-experience: #d7ebe6;
+  --section-skills: #f5e7d0;
+  --section-work: #edb59c;
   --section-blog: #d5ebe6;
-  --section-contact: #e8f3ef;
+  --section-contact: #f2cd7c;
   --chip-bg: #fffdf7;
   --chip-border: #cdd8d0;
 }
@@ -28,7 +28,7 @@ html {
 body {
   margin: 0;
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-  background: linear-gradient(-45deg, #eef6f2 0%, #e2f0ec 25%, #f0f7f4 50%, #dfeeea 75%, #eef6f2 100%);
+  background: linear-gradient(-45deg, #f3ede0 0%, #e6efe8 25%, #f7f0e1 50%, #e3ede7 75%, #f3ede0 100%);
   background-size: 400% 400%;
   background-attachment: fixed;
   animation: aurora 18s ease infinite;
@@ -432,17 +432,17 @@ main {
 
 .section-skills {
   background: var(--section-skills);
-  border-left: 5px solid #2dd4bf;
+  border-left: 5px solid #f59e0b;
 }
 
 .section-work {
   background: var(--section-work);
-  border-left: 5px solid #0d9488;
+  border-left: 5px solid #c2410c;
 }
 
 .section-contact {
   background: var(--section-contact);
-  border-left: 5px solid #059669;
+  border-left: 5px solid #a16207;
 }
 
 .section-blog {
