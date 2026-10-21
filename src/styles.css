@@ -28,7 +28,7 @@ html {
 body {
   margin: 0;
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-  background: linear-gradient(-45deg, #f3ede0 0%, #e6efe8 25%, #f7f0e1 50%, #e3ede7 75%, #f3ede0 100%);
+  background: linear-gradient(-45deg, #eef6f2 0%, #e2f0ec 25%, #f0f7f4 50%, #dfeeea 75%, #eef6f2 100%);
   background-size: 400% 400%;
   background-attachment: fixed;
   animation: aurora 18s ease infinite;
