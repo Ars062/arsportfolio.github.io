@@ -15,6 +15,7 @@
   --section-contact: #f2cd7c;
   --chip-bg: #fffdf7;
   --chip-border: #cdd8d0;
+  --page-bg: linear-gradient(-45deg, #fdeef3 0%, #f9e0ea 25%, #fdf0f5 50%, #f8e2ec 75%, #fdeef3 100%);
 }
 
 * {
@@ -28,7 +29,7 @@ html {
 body {
   margin: 0;
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-  background: linear-gradient(-45deg, #fdeef3 0%, #f9e0ea 25%, #fdf0f5 50%, #f8e2ec 75%, #fdeef3 100%);
+  background: var(--page-bg);
   background-size: 400% 400%;
   background-attachment: fixed;
   animation: aurora 18s ease infinite;
@@ -1113,6 +1114,35 @@ h2::after {
   outline: none;
   border-color: var(--accent);
   box-shadow: 0 0 0 3px var(--accent-glow);
+}
+
+.phone-field {
+  display: grid;
+  grid-template-columns: minmax(150px, 200px) 1fr;
+  gap: 0.5rem;
+}
+
+.contact-form select.country-select {
+  width: 100%;
+  border: 1px solid #d1d5db;
+  border-radius: 12px;
+  padding: 0.75rem 0.9rem;
+  font: inherit;
+  background: #fff;
+  transition: border-color 0.2s, box-shadow 0.2s;
+  cursor: pointer;
+}
+
+.contact-form select.country-select:focus {
+  outline: none;
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px var(--accent-glow);
+}
+
+@media (max-width: 720px) {
+  .phone-field {
+    grid-template-columns: 1fr;
+  }
 }
 
 .button-row {

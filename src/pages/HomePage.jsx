@@ -544,8 +544,111 @@ function scrollTo(id) {
   if (el) el.scrollIntoView({ behavior: "smooth" });
 }
 
+const countryCodes = [
+  { code: "+1", country: "United States" },
+  { code: "+1", country: "Canada" },
+  { code: "+7", country: "Russia / Kazakhstan" },
+  { code: "+20", country: "Egypt" },
+  { code: "+27", country: "South Africa" },
+  { code: "+30", country: "Greece" },
+  { code: "+31", country: "Netherlands" },
+  { code: "+32", country: "Belgium" },
+  { code: "+33", country: "France" },
+  { code: "+34", country: "Spain" },
+  { code: "+36", country: "Hungary" },
+  { code: "+39", country: "Italy" },
+  { code: "+40", country: "Romania" },
+  { code: "+41", country: "Switzerland" },
+  { code: "+43", country: "Austria" },
+  { code: "+44", country: "United Kingdom" },
+  { code: "+45", country: "Denmark" },
+  { code: "+46", country: "Sweden" },
+  { code: "+47", country: "Norway" },
+  { code: "+48", country: "Poland" },
+  { code: "+49", country: "Germany" },
+  { code: "+51", country: "Peru" },
+  { code: "+52", country: "Mexico" },
+  { code: "+54", country: "Argentina" },
+  { code: "+55", country: "Brazil" },
+  { code: "+56", country: "Chile" },
+  { code: "+57", country: "Colombia" },
+  { code: "+60", country: "Malaysia" },
+  { code: "+61", country: "Australia" },
+  { code: "+62", country: "Indonesia" },
+  { code: "+63", country: "Philippines" },
+  { code: "+64", country: "New Zealand" },
+  { code: "+65", country: "Singapore" },
+  { code: "+66", country: "Thailand" },
+  { code: "+81", country: "Japan" },
+  { code: "+82", country: "South Korea" },
+  { code: "+84", country: "Vietnam" },
+  { code: "+86", country: "China" },
+  { code: "+90", country: "Turkey" },
+  { code: "+91", country: "India" },
+  { code: "+92", country: "Pakistan" },
+  { code: "+93", country: "Afghanistan" },
+  { code: "+94", country: "Sri Lanka" },
+  { code: "+95", country: "Myanmar" },
+  { code: "+98", country: "Iran" },
+  { code: "+212", country: "Morocco" },
+  { code: "+213", country: "Algeria" },
+  { code: "+216", country: "Tunisia" },
+  { code: "+218", country: "Libya" },
+  { code: "+220", country: "Gambia" },
+  { code: "+233", country: "Ghana" },
+  { code: "+234", country: "Nigeria" },
+  { code: "+249", country: "Sudan" },
+  { code: "+250", country: "Rwanda" },
+  { code: "+251", country: "Ethiopia" },
+  { code: "+254", country: "Kenya" },
+  { code: "+255", country: "Tanzania" },
+  { code: "+256", country: "Uganda" },
+  { code: "+260", country: "Zambia" },
+  { code: "+263", country: "Zimbabwe" },
+  { code: "+351", country: "Portugal" },
+  { code: "+352", country: "Luxembourg" },
+  { code: "+353", country: "Ireland" },
+  { code: "+354", country: "Iceland" },
+  { code: "+358", country: "Finland" },
+  { code: "+359", country: "Bulgaria" },
+  { code: "+370", country: "Lithuania" },
+  { code: "+371", country: "Latvia" },
+  { code: "+372", country: "Estonia" },
+  { code: "+380", country: "Ukraine" },
+  { code: "+381", country: "Serbia" },
+  { code: "+385", country: "Croatia" },
+  { code: "+420", country: "Czech Republic" },
+  { code: "+421", country: "Slovakia" },
+  { code: "+852", country: "Hong Kong" },
+  { code: "+853", country: "Macau" },
+  { code: "+855", country: "Cambodia" },
+  { code: "+880", country: "Bangladesh" },
+  { code: "+886", country: "Taiwan" },
+  { code: "+960", country: "Maldives" },
+  { code: "+962", country: "Jordan" },
+  { code: "+963", country: "Syria" },
+  { code: "+964", country: "Iraq" },
+  { code: "+965", country: "Kuwait" },
+  { code: "+966", country: "Saudi Arabia" },
+  { code: "+967", country: "Yemen" },
+  { code: "+968", country: "Oman" },
+  { code: "+971", country: "United Arab Emirates" },
+  { code: "+972", country: "Israel" },
+  { code: "+973", country: "Bahrain" },
+  { code: "+974", country: "Qatar" },
+  { code: "+975", country: "Bhutan" },
+  { code: "+976", country: "Mongolia" },
+  { code: "+977", country: "Nepal" },
+  { code: "+992", country: "Tajikistan" },
+  { code: "+993", country: "Turkmenistan" },
+  { code: "+994", country: "Azerbaijan" },
+  { code: "+995", country: "Georgia" },
+  { code: "+998", country: "Uzbekistan" },
+];
+
 function HomePage() {
   const [openCase, setOpenCase] = useState(null);
+  const [countryCode, setCountryCode] = useState("+91");
 
   const toggleCase = (title) => {
     setOpenCase((current) => (current === title ? null : title));
@@ -593,7 +696,7 @@ function HomePage() {
     }
 
     const whatsappNumber = "919883557734";
-    const fullMessage = `Hi, I am ${name}. Email: ${email}. Phone: ${phone}. Message: ${message}`;
+    const fullMessage = `Hi, I am ${name}. Email: ${email}. Phone: ${countryCode} ${phone}. Message: ${message}`;
     const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(fullMessage)}`;
     window.open(whatsappUrl, "_blank", "noopener,noreferrer");
   };
@@ -916,7 +1019,22 @@ GroundingDINO (zero-shot) â†’ Verify 300 â†’ Train R1
             <input id="email" name="email" type="email" required />
 
             <label htmlFor="phone">Phone</label>
-            <input id="phone" name="phone" type="tel" required />
+            <div className="phone-field">
+              <select
+                className="country-select"
+                value={countryCode}
+                onChange={(e) => setCountryCode(e.target.value)}
+                aria-label="Country code"
+              >
+                {countryCodes.map((c) => (
+                  <option key={`${c.code}-${c.country}`} value={c.code}>
+                    {c.country} ({c.code})
+                  </option>
+                ))}
+              </select>
+              <input id="phone" name="phone" type="tel" placeholder="Phone number" required />
+            </div>
+            <input type="hidden" name="country_code" value={countryCode} />
 
             <label htmlFor="message">Message</label>
             <textarea id="message" name="message" rows="5" required />
