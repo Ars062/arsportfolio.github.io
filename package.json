@@ -7,7 +7,7 @@
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview",
-    "deploy": "gh-pages -d dist"
+    "deploy": "gh-pages -d dist -r https://github.com/Ars062/ARS-Portfolio.git -b gh-pages"
   },
   "dependencies": {
     "motion": "^14.1.0",
