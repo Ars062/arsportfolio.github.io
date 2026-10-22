@@ -1,9 +1,6 @@
-import { useEffect, useRef, useState } from "react";
+﻿import { useEffect, useRef, useState } from "react";
 
 const FRAME_COUNT = 36;
-const SUBJECT_X = 0.45;
-const SUBJECT_Y = 0.28;
-const HEAD_FRACTION = 0.3;
 
 const frameSrc = (i) =>
   `${import.meta.env.BASE_URL}sequence/frame_${String(i).padStart(3, "0")}.webp`;
@@ -128,44 +125,4 @@ export function ScrollyCanvas() {
       <div className={`page-frames-loader${ready ? " is-ready" : ""}`} />
     </div>
   );
-}
-
-export function PortraitCanvas() {
-  const canvasRef = useRef(null);
-  const index = useFrameIndex();
-  const tick = useLoadTick();
-
-  useEffect(() => {
-    const canvas = canvasRef.current;
-    if (!canvas) return undefined;
-    const ctx = canvas.getContext("2d");
-
-    const render = () => {
-      const size = canvas.clientWidth;
-      if (!size) return;
-      const dpr = Math.min(window.devicePixelRatio || 1, 2);
-      const pw = Math.round(size * dpr);
-      if (canvas.width !== pw) {
-        canvas.width = pw;
-        canvas.height = pw;
-      }
-      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
-      ctx.clearRect(0, 0, size, size);
-      const img = getFrame(index);
-      if (!img) return;
-      const iw = img.naturalWidth;
-      const ih = img.naturalHeight;
-      const scale = (size * 0.82) / (HEAD_FRACTION * ih);
-      const dw = iw * scale;
-      const dh = ih * scale;
-      ctx.drawImage(img, size / 2 - SUBJECT_X * dw, size / 2 - SUBJECT_Y * dh, dw, dh);
-    };
-
-    render();
-    const observer = new ResizeObserver(render);
-    observer.observe(canvas);
-    return () => observer.disconnect();
-  }, [index, tick]);
-
-  return <canvas className="hero-portrait-canvas" ref={canvasRef} aria-hidden="true" />;
 }

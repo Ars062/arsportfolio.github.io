@@ -3,7 +3,7 @@ import profilePic from "../../myphoto.jpeg";
 import CaseStudy from "../components/CaseStudy";
 import Hero3DBackground from "../components/Hero3DBackground";
 import Page3DBackground from "../components/Page3DBackground";
-import { PortraitCanvas, ScrollyCanvas } from "../components/ScrollyCanvas";
+import { ScrollyCanvas } from "../components/ScrollyCanvas";
 import SkillTopology from "../components/SkillTopology";
 import Typewriter from "../components/Typewriter";
 import { skillTopology } from "../data/skills";
@@ -717,10 +717,12 @@ function HomePage() {
             <a href="#skills" onClick={(e) => { e.preventDefault(); scrollTo("skills"); }}>Skills</a>
             <a href="#work" onClick={(e) => { e.preventDefault(); scrollTo("work"); }}>Work</a>
             <a href="#blog" onClick={(e) => { e.preventDefault(); scrollTo("blog"); }}>Blog</a>
-            <a href="#contact" onClick={(e) => { e.preventDefault(); scrollTo("contact"); }}>Contact</a>
-            <a className="nav-cta" href="https://calendly.com/ars062/30min" target="_blank" rel="noopener noreferrer" aria-label="Book a 1:1 call">
-              <ion-icon name="calendar-outline"></ion-icon> 1:1 Call
-            </a>
+            <span className="nav-cta-group">
+              <a href="#contact" onClick={(e) => { e.preventDefault(); scrollTo("contact"); }}>Contact</a>
+              <a className="nav-cta" href="https://calendly.com/ars062/30min" target="_blank" rel="noopener noreferrer" aria-label="Book a 1:1 call">
+                <ion-icon name="calendar-outline"></ion-icon> 1:1 Call
+              </a>
+            </span>
           </div>
         </nav>
 
@@ -728,7 +730,6 @@ function HomePage() {
           <div className="hero-left">
             <div className="hero-photo">
               <img src={profilePic} alt="Abdur Rahaman Siddique" />
-              <PortraitCanvas />
             </div>
           </div>
           <div className="hero-right">
