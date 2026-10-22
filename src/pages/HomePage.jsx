@@ -3,6 +3,7 @@ import profilePic from "../../myphoto.jpeg";
 import CaseStudy from "../components/CaseStudy";
 import Hero3DBackground from "../components/Hero3DBackground";
 import Page3DBackground from "../components/Page3DBackground";
+import { PortraitCanvas, ScrollyCanvas } from "../components/ScrollyCanvas";
 import SkillTopology from "../components/SkillTopology";
 import Typewriter from "../components/Typewriter";
 import { skillTopology } from "../data/skills";
@@ -705,6 +706,7 @@ function HomePage() {
 
   return (
     <div className="page">
+      <ScrollyCanvas />
       <header className="hero" id="home">
         <Hero3DBackground />
         <nav className="navbar">
@@ -726,6 +728,7 @@ function HomePage() {
           <div className="hero-left">
             <div className="hero-photo">
               <img src={profilePic} alt="Abdur Rahaman Siddique" />
+              <PortraitCanvas />
             </div>
           </div>
           <div className="hero-right">
