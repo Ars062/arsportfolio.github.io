@@ -7,6 +7,8 @@ import { ScrollyCanvas } from "../components/ScrollyCanvas";
 import SkillTopology from "../components/SkillTopology";
 import Typewriter from "../components/Typewriter";
 import { skillTopology } from "../data/skills";
+
+const FRAME_SCROLL = import.meta.env.VITE_FRAME_SCROLL !== "false";
 import vendorchatDashboard from "../assets/projects/vendorchat-dashboard.png";
 import bangaloreHomePrice from "../assets/projects/bangalore-home-price-1.png";
 import airlineDashboardOne from "../assets/projects/airline-dashboard-1.png";
@@ -682,8 +684,8 @@ function HomePage() {
   };
 
   return (
-    <div className="page">
-      <ScrollyCanvas />
+    <div className={`page${FRAME_SCROLL ? " has-frames" : ""}`}>
+      {FRAME_SCROLL && <ScrollyCanvas />}
       <header className="hero" id="home">
         <Hero3DBackground />
         <nav className="navbar">

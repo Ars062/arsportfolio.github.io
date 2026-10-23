@@ -1845,7 +1845,7 @@ main,
   z-index: 2;
 }
 
-.hero {
+.page.has-frames .hero {
   background: transparent;
 }
 
