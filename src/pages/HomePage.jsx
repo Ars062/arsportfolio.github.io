@@ -270,17 +270,6 @@ const airlineCaseStudy = {
           body: "Cabin-level and sentiment-level KPIs let an analyst localise the gap to a carrier, a cabin segment or a sentiment category."
         }
       ]
-    },
-    {
-      title: "Limitations",
-      kind: "list",
-      items: [
-        "Observational data - the analysis finds associations, not causal relationships.",
-        "Historical review data from a self-selected reviewer population, which skews polarised and may not reflect current behaviour.",
-        "NLP limitations - BERT predictions are sensitive to very long reviews, context, sarcasm, mixed sentiment and domain-specific language.",
-        "Very high test metrics should be validated on genuinely future or external data before any production use.",
-        "The model predicts recommendation behaviour; it does not show that changing a feature will cause a recommendation."
-      ]
     }
   ]
 };
@@ -413,18 +402,6 @@ const aiTutorCaseStudy = {
       ],
       note:
         "A write-up that pretends the known-broken parts work is worthless, so the honest status ships with the code."
-    },
-    {
-      title: "Limitations and what I would fix next",
-      kind: "list",
-      items: [
-        "Recording audio - the AudioContext mix of remote and local tracks needs per-source gain work or direct capture of the tab's audio stream.",
-        "No tests, no CI - pts pacing, audio_chunks frame math, engine selection and the RAG contract are exactly where a small pytest suite belongs.",
-        "Operations are hand-rolled - a shell keep-alive loop, a bracket-pkill rule and manual env prefixes rather than systemd or a compose file.",
-        "STT/VAD tuning is global - one VADParams for every microphone, with no adaptive noise floor for quiet headsets.",
-        "End-to-end latency is never logged as a clean question-to-first-audio percentile, even though stage-level facts are known.",
-        "Subtitles for the teacher's answer are designed but not built, and the puppet fallback keeps the tutor teaching rather than looking like a person."
-      ]
     }
   ]
 };
