@@ -7,6 +7,7 @@ import { ScrollyCanvas } from "../components/ScrollyCanvas";
 import SkillTopology from "../components/SkillTopology";
 import Typewriter from "../components/Typewriter";
 import { skillTopology } from "../data/skills";
+import victoriaAbout from "../assets/victoriaa-about.jpg";
 
 const FRAME_SCROLL = import.meta.env.VITE_FRAME_SCROLL !== "false";
 import vendorchatDashboard from "../assets/projects/vendorchat-dashboard.png";
@@ -745,48 +746,69 @@ function HomePage() {
 
       <main>
         <section className="section section-about" id="about">
-          <h2>Who am I?</h2>
-          <p className="about-lead">
-            An AI engineer who builds systems end to end — from raw data and model training
-            to GPU-accelerated inference, agents, and production APIs.
-          </p>
-          <p>
-            I&rsquo;m Abdur Rahaman Siddique, an AI Engineer with hands-on experience across Machine
-            Learning, Generative AI, Computer Vision, Large Language Models and Data Analytics. I
-            currently work remotely with an Australia-based AI company, contributing to scalable,
-            production-ready AI systems — and my work spans the complete AI lifecycle, from data
-            annotation and model training to backend integration, cloud deployment and performance
-            optimization.
-          </p>
-          <p>
-            Along the way I&rsquo;ve built multimodal sports video analytics, LLM-to-SQL agents,
-            RAG-based question-answering, AI tutoring platforms, user behavior analytics and
-            interactive dashboards — using Python, SQL, PyTorch, TensorFlow, LangChain, OpenCV,
-            FastAPI, Docker and RunPod.
-          </p>
-          <p>
-            I like problems where AI, data and software engineering have to work together for
-            real, and I keep exploring whatever is emerging next. Open to relocation for the
-            right opportunity.
-          </p>
-          <ul className="about-facts">
-            <li>
-              <span className="about-fact-value">1+</span>
-              <span className="about-fact-label">year building production AI</span>
-            </li>
-            <li>
-              <span className="about-fact-value">6</span>
-              <span className="about-fact-label">flagship systems shipped</span>
-            </li>
-            <li>
-              <span className="about-fact-value">8</span>
-              <span className="about-fact-label">domains, from CV to LLM agents</span>
-            </li>
-            <li>
-              <span className="about-fact-value">10+</span>
-              <span className="about-fact-label">tools across the AI stack</span>
-            </li>
-          </ul>
+          <div
+            className="about-photo"
+            style={{ backgroundImage: `url(${victoriaAbout})` }}
+            aria-hidden="true"
+          />
+          <div className="about-photo-scrim" aria-hidden="true" />
+
+          <div className="about-photo-content">
+            <h2>Who I am</h2>
+
+            <div className="about-cols">
+              <div className="about-prose">
+                <p className="about-lead">
+                  A Data Scientist and AI Engineer who turns data into insights, models into
+                  intelligence, and ideas into working products.
+                </p>
+                <p>
+                  From Data Analytics and Machine Learning to Generative AI and Computer Vision, I
+                  enjoy solving problems across the entire journey — from understanding data to
+                  building and deploying solutions.
+                </p>
+              </div>
+
+              <div className="about-side">
+                <div className="approach-card">
+                  <span className="approach-tag">My approach is simple</span>
+                  <p>
+                    Explore the data, understand the problem, build with purpose, and deliver
+                    solutions that make a difference.
+                  </p>
+                </div>
+
+                <blockquote className="quote-card">
+                  <p>
+                    &ldquo;Abdur is really a guy I respect more and more every day. He is someone
+                    whose work ethic is unbelievable...&rdquo;
+                  </p>
+                  <cite>Mit &mdash; Founder, YUKIN AI</cite>
+                </blockquote>
+              </div>
+            </div>
+
+            <ul className="about-facts">
+              <li>
+                <span className="about-fact-value">1+ year</span>
+                <span className="about-fact-label">hands-on industry experience</span>
+              </li>
+              <li>
+                <span className="about-fact-value">5 sports</span>
+                <span className="about-fact-label">powered by computer vision</span>
+              </li>
+              <li>
+                <span className="about-fact-value">129K+</span>
+                <span className="about-fact-label">customer reviews analysed</span>
+              </li>
+              <li>
+                <span className="about-fact-value">End-to-end</span>
+                <span className="about-fact-label">
+                  analytics, machine learning and AI engineering
+                </span>
+              </li>
+            </ul>
+          </div>
         </section>
 
         <section className="section section-experience" id="experience">

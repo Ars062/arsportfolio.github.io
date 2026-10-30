@@ -377,9 +377,106 @@ main {
 }
 
 .section-about {
+  position: relative;
+  overflow: hidden;
   background: linear-gradient(135deg, #052e2b, #0d6b5e);
   border-left: 5px solid #10b981;
   color: #ffffff;
+}
+
+.about-photo {
+  position: absolute;
+  inset: 0;
+  background-repeat: no-repeat;
+  background-position: center 38%;
+  background-size: cover;
+  filter: brightness(0.85) saturate(1.05);
+  z-index: 0;
+}
+
+.about-photo-scrim {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background:
+    linear-gradient(
+      95deg,
+      rgba(5, 46, 43, 0.93) 0%,
+      rgba(5, 46, 43, 0.91) 42%,
+      rgba(5, 46, 43, 0.85) 62%,
+      rgba(5, 46, 43, 0.62) 80%,
+      rgba(5, 46, 43, 0.3) 100%
+    ),
+    linear-gradient(180deg, rgba(5, 46, 43, 0.4) 0%, rgba(5, 46, 43, 0.16) 45%, rgba(5, 46, 43, 0.34) 100%);
+}
+
+.about-photo-content {
+  position: relative;
+  z-index: 1;
+  max-width: 72%;
+}
+
+.about-cols {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 0.9fr);
+  gap: 1rem 1.6rem;
+  align-items: start;
+}
+
+.about-side {
+  display: grid;
+  gap: 0.7rem;
+  min-width: 0;
+}
+
+.section-about .approach-card {
+  padding: 0.95rem 1.1rem;
+  border-radius: 14px;
+  background: linear-gradient(135deg, rgba(16, 185, 129, 0.16), rgba(252, 211, 77, 0.1));
+  border: 1px solid rgba(16, 185, 129, 0.32);
+}
+
+.section-about .approach-tag {
+  display: inline-block;
+  margin-bottom: 0.35rem;
+  font-size: 0.7rem;
+  font-weight: 800;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  color: #6ee7b7;
+}
+
+.section-about .approach-card p {
+  margin: 0;
+  font-size: 0.94rem;
+  font-weight: 600;
+  line-height: 1.5;
+  color: #ffffff;
+}
+
+.section-about .quote-card {
+  margin: 0;
+  padding: 0.9rem 1.1rem;
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-left: 4px solid #fcd34d;
+}
+
+.section-about .quote-card p {
+  margin: 0 0 0.45rem;
+  font-size: 0.94rem;
+  font-weight: 600;
+  line-height: 1.5;
+  color: #ffffff;
+}
+
+.section-about .quote-card cite {
+  font-style: normal;
+  font-size: 0.76rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  color: #fcd34d;
 }
 
 .section-about h2 {
@@ -403,18 +500,15 @@ main {
 
 .section-about .about-facts {
   list-style: none;
-  margin: 1.4rem 0 0;
-  padding: 0;
+  margin: 1.6rem 0 0;
+  padding: 1.2rem 0 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.22);
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-  gap: 0.7rem;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 1.1rem;
 }
 
 .section-about .about-facts li {
-  background: rgba(255, 255, 255, 0.09);
-  border: 1px solid rgba(255, 255, 255, 0.18);
-  border-radius: 12px;
-  padding: 0.7rem 0.85rem;
   display: flex;
   flex-direction: column;
   gap: 0.15rem;
@@ -422,8 +516,8 @@ main {
 
 .section-about .about-fact-value {
   font-weight: 800;
-  font-size: 1.4rem;
-  line-height: 1.1;
+  font-size: clamp(1.05rem, 2vw, 1.45rem);
+  line-height: 1.15;
   background: linear-gradient(90deg, #f6b93b, #fcd34d);
   -webkit-background-clip: text;
   background-clip: text;
@@ -435,6 +529,31 @@ main {
   font-weight: 600;
   line-height: 1.35;
   color: rgba(255, 255, 255, 0.82);
+}
+
+@media (max-width: 900px) {
+  .about-photo-content {
+    max-width: 100%;
+  }
+
+  .about-cols {
+    grid-template-columns: 1fr;
+  }
+
+  .about-photo {
+    background-position: center 30%;
+  }
+
+  .about-photo-scrim {
+    background:
+      linear-gradient(
+        180deg,
+        rgba(5, 46, 43, 0.95) 0%,
+        rgba(5, 46, 43, 0.92) 50%,
+        rgba(5, 46, 43, 0.88) 78%,
+        rgba(5, 46, 43, 0.8) 100%
+      );
+  }
 }
 
 .section-experience {
