@@ -747,7 +747,12 @@ function HomePage() {
       <main>
         <section className="section section-about" id="about">
           <div
-            className="about-photo"
+            className="about-photo-blur"
+            style={{ backgroundImage: `url(${victoriaAbout})` }}
+            aria-hidden="true"
+          />
+          <div
+            className="about-photo-sharp"
             style={{ backgroundImage: `url(${victoriaAbout})` }}
             aria-hidden="true"
           />
@@ -756,36 +761,32 @@ function HomePage() {
           <div className="about-photo-content">
             <h2>Who I am</h2>
 
-            <div className="about-cols">
-              <div className="about-prose">
-                <p className="about-lead">
-                  A Data Scientist and AI Engineer who turns data into insights, models into
-                  intelligence, and ideas into working products.
-                </p>
+            <p className="about-lead">
+              A Data Scientist and AI Engineer who turns data into insights, models into
+              intelligence, and ideas into working products.
+            </p>
+            <p>
+              From Data Analytics and Machine Learning to Generative AI and Computer Vision, I
+              enjoy solving problems across the entire journey — from understanding data to
+              building and deploying solutions.
+            </p>
+
+            <div className="about-cards">
+              <div className="approach-card">
+                <span className="approach-tag">My approach is simple</span>
                 <p>
-                  From Data Analytics and Machine Learning to Generative AI and Computer Vision, I
-                  enjoy solving problems across the entire journey — from understanding data to
-                  building and deploying solutions.
+                  Explore the data, understand the problem, build with purpose, and deliver
+                  solutions that make a difference.
                 </p>
               </div>
 
-              <div className="about-side">
-                <div className="approach-card">
-                  <span className="approach-tag">My approach is simple</span>
-                  <p>
-                    Explore the data, understand the problem, build with purpose, and deliver
-                    solutions that make a difference.
-                  </p>
-                </div>
-
-                <blockquote className="quote-card">
-                  <p>
-                    &ldquo;Abdur is really a guy I respect more and more every day. He is someone
-                    whose work ethic is unbelievable...&rdquo;
-                  </p>
-                  <cite>Mit &mdash; Founder, YUKIN AI</cite>
-                </blockquote>
-              </div>
+              <blockquote className="quote-card">
+                <p>
+                  &ldquo;Abdur is really a guy I respect more and more every day. He is someone
+                  whose work ethic is unbelievable...&rdquo;
+                </p>
+                <cite>Mit &mdash; Founder, YUKIN AI</cite>
+              </blockquote>
             </div>
 
             <ul className="about-facts">

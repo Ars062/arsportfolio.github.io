@@ -379,18 +379,31 @@ main {
 .section-about {
   position: relative;
   overflow: hidden;
-  background: linear-gradient(135deg, #052e2b, #0d6b5e);
+  min-height: 520px;
+  background: linear-gradient(135deg, #eaf6ef 0%, #dff0e6 55%, #e6f3ec 100%);
   border-left: 5px solid #10b981;
-  color: #ffffff;
+  color: var(--text-body);
 }
 
-.about-photo {
+.about-photo-blur {
   position: absolute;
-  inset: 0;
+  inset: -60px;
   background-repeat: no-repeat;
-  background-position: center 38%;
+  background-position: center 32%;
   background-size: cover;
-  filter: brightness(0.85) saturate(1.05);
+  filter: blur(40px) saturate(1.1);
+  transform: scale(1.08);
+  opacity: 0.5;
+  z-index: 0;
+}
+
+.about-photo-sharp {
+  position: absolute;
+  inset: 0 auto 0 1.5rem;
+  width: calc(44% - 1.5rem);
+  background-repeat: no-repeat;
+  background-position: left center;
+  background-size: contain;
   z-index: 0;
 }
 
@@ -398,42 +411,47 @@ main {
   position: absolute;
   inset: 0;
   z-index: 0;
-  background:
-    linear-gradient(
-      95deg,
-      rgba(5, 46, 43, 0.93) 0%,
-      rgba(5, 46, 43, 0.91) 42%,
-      rgba(5, 46, 43, 0.85) 62%,
-      rgba(5, 46, 43, 0.62) 80%,
-      rgba(5, 46, 43, 0.3) 100%
-    ),
-    linear-gradient(180deg, rgba(5, 46, 43, 0.4) 0%, rgba(5, 46, 43, 0.16) 45%, rgba(5, 46, 43, 0.34) 100%);
+  pointer-events: none;
+  background: linear-gradient(
+    100deg,
+    rgba(234, 246, 239, 0.02) 0%,
+    rgba(234, 246, 239, 0.06) 30%,
+    rgba(234, 246, 239, 0.45) 44%,
+    rgba(234, 246, 239, 0.88) 56%,
+    rgba(234, 246, 239, 0.96) 70%,
+    rgba(234, 246, 239, 0.97) 100%
+  );
 }
 
 .about-photo-content {
   position: relative;
   z-index: 1;
-  max-width: 72%;
+  max-width: 54%;
+  margin-left: auto;
 }
 
-.about-cols {
+.about-cards {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(0, 0.9fr);
-  gap: 1rem 1.6rem;
-  align-items: start;
+  grid-template-columns: 1fr 1fr;
+  gap: 0;
+  margin: 1.25rem 0 0;
+  border-radius: 14px;
+  overflow: hidden;
 }
 
-.about-side {
-  display: grid;
-  gap: 0.7rem;
-  min-width: 0;
+.about-cards > * {
+  border-radius: 0;
+}
+
+.about-cards .approach-card {
+  border-right: none;
 }
 
 .section-about .approach-card {
   padding: 0.95rem 1.1rem;
   border-radius: 14px;
-  background: linear-gradient(135deg, rgba(16, 185, 129, 0.16), rgba(252, 211, 77, 0.1));
-  border: 1px solid rgba(16, 185, 129, 0.32);
+  background: linear-gradient(135deg, rgba(16, 185, 129, 0.12), rgba(252, 211, 77, 0.18));
+  border: 1px solid rgba(13, 107, 94, 0.22);
 }
 
 .section-about .approach-tag {
@@ -443,7 +461,7 @@ main {
   font-weight: 800;
   letter-spacing: 0.07em;
   text-transform: uppercase;
-  color: #6ee7b7;
+  color: #0f766e;
 }
 
 .section-about .approach-card p {
@@ -451,16 +469,16 @@ main {
   font-size: 0.94rem;
   font-weight: 600;
   line-height: 1.5;
-  color: #ffffff;
+  color: var(--text-heading);
 }
 
 .section-about .quote-card {
   margin: 0;
   padding: 0.9rem 1.1rem;
   border-radius: 14px;
-  background: rgba(255, 255, 255, 0.1);
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  border-left: 4px solid #fcd34d;
+  background: rgba(255, 255, 255, 0.78);
+  border: 1px solid rgba(13, 107, 94, 0.16);
+  border-left: 4px solid var(--accent);
 }
 
 .section-about .quote-card p {
@@ -468,7 +486,7 @@ main {
   font-size: 0.94rem;
   font-weight: 600;
   line-height: 1.5;
-  color: #ffffff;
+  color: var(--text-heading);
 }
 
 .section-about .quote-card cite {
@@ -476,36 +494,36 @@ main {
   font-size: 0.76rem;
   font-weight: 700;
   letter-spacing: 0.02em;
-  color: #fcd34d;
+  color: #0f766e;
 }
 
 .section-about h2 {
   display: inline-block;
   animation: float-soft 6s ease-in-out infinite;
-  color: #ffffff;
+  color: var(--text-heading);
 }
 
 .section-about p {
-  color: rgba(255, 255, 255, 0.94);
-  font-weight: 600;
+  color: var(--text-body);
+  font-weight: 500;
 }
 
 .section-about .about-lead {
   font-size: clamp(1.02rem, 2.2vw, 1.2rem);
   font-weight: 700;
   line-height: 1.55;
-  color: #ffffff;
+  color: var(--text-heading);
   margin: 0.1rem 0 1rem;
 }
 
 .section-about .about-facts {
   list-style: none;
-  margin: 1.6rem 0 0;
+  margin: 1.5rem 0 0;
   padding: 1.2rem 0 0;
-  border-top: 1px solid rgba(255, 255, 255, 0.22);
+  border-top: 1px solid rgba(18, 51, 43, 0.16);
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-  gap: 1.1rem;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.1rem 1.4rem;
 }
 
 .section-about .about-facts li {
@@ -518,7 +536,7 @@ main {
   font-weight: 800;
   font-size: clamp(1.05rem, 2vw, 1.45rem);
   line-height: 1.15;
-  background: linear-gradient(90deg, #f6b93b, #fcd34d);
+  background: linear-gradient(90deg, #b45309, #d97706);
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -528,31 +546,59 @@ main {
   font-size: 0.78rem;
   font-weight: 600;
   line-height: 1.35;
-  color: rgba(255, 255, 255, 0.82);
+  color: var(--text-muted);
 }
 
 @media (max-width: 900px) {
   .about-photo-content {
     max-width: 100%;
+    padding-top: 280px;
   }
 
-  .about-cols {
+  .about-cards {
     grid-template-columns: 1fr;
+    gap: 0.75rem;
+    overflow: visible;
   }
 
-  .about-photo {
+  .about-cards > * {
+    border-radius: 14px;
+  }
+
+  .about-cards .approach-card {
+    border-right: 1px solid rgba(13, 107, 94, 0.22);
+  }
+
+  .about-photo-blur,
+  .about-photo-sharp,
+  .about-photo-scrim {
+    inset: 0 0 auto 0;
+    width: auto;
+    height: 280px;
+  }
+
+  .about-photo-blur {
+    inset: -40px -40px auto -40px;
+    width: auto;
+    height: 360px;
     background-position: center 30%;
+    opacity: 0.6;
+  }
+
+  .about-photo-sharp {
+    background-position: center center;
+    background-size: contain;
   }
 
   .about-photo-scrim {
-    background:
-      linear-gradient(
-        180deg,
-        rgba(5, 46, 43, 0.95) 0%,
-        rgba(5, 46, 43, 0.92) 50%,
-        rgba(5, 46, 43, 0.88) 78%,
-        rgba(5, 46, 43, 0.8) 100%
-      );
+    background: linear-gradient(
+      180deg,
+      rgba(234, 246, 239, 0) 0%,
+      rgba(234, 246, 239, 0.04) 55%,
+      rgba(234, 246, 239, 0.55) 82%,
+      rgba(234, 246, 239, 0.92) 95%,
+      rgba(234, 246, 239, 1) 100%
+    );
   }
 }
 
